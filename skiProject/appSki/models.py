@@ -3,8 +3,7 @@ from django.db import models
 class Localidad(models.Model):
     # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
     nombre = models.CharField(max_length=50)
-    latitud = models.FloatField
-    longitud = models.FloatField
+    superficie = models.FloatField
 
 class Pista(models.Model):
     nombre = models.CharField(max_length=50)
@@ -23,6 +22,7 @@ class Estacion(models.Model):
     # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
     nombre = models.CharField(max_length=50)
     localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE)
+    superficie = models.FloatField
     pista = models.ManyToManyField(Pista)
     precio_dia = models.FloatField
     horario = models.TimeField
