@@ -3,7 +3,6 @@ from django.db import models
 class Localidad(models.Model):
     # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
     nombre = models.CharField(max_length=50)
-    superficie = models.FloatField
 
 class Pista(models.Model):
     nombre = models.CharField(max_length=50)
