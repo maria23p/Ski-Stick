@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse(request,"Listado de estaciones de Esquí:")
+    return HttpResponse("Listado de estaciones de Esquí:")
