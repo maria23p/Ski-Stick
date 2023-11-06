@@ -15,10 +15,10 @@ class Pista(models.Model):
 
 class Servicio(models.Model):
     nombre = models.CharField(max_length=50)
-    costo = models.FloatField
-    horario = models.TimeField
-    capacidad = models.IntegerField
-    reserva = models.BooleanField
+    costo = models.FloatField()
+    horario = models.TimeField()
+    capacidad = models.IntegerField()
+    reserva = models.BooleanField()
     def __str__(self):
         return self.nombre
 
