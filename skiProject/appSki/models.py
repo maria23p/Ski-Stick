@@ -27,11 +27,26 @@ class Estacion(models.Model):
     nombre = models.CharField(max_length=50)
     localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE)
     superficie = models.FloatField
-    pista = models.ManyToManyField(Pista)
     precio_dia = models.FloatField
     horario = models.TimeField
     telefono = models.IntegerField
     estado = models.CharField(max_length = 50)
-    servicio = models.ManyToManyField(Servicio)
+    pistas = models.ManyToManyField(Pista, through='EstacionPista')
+    servicios = models.ManyToManyField(Servicio, through='EstacionServicio')
+    #servicio = models.ManyToManyField(Servicio)
     def __str__(self):
         return self.nombre
+
+class EstacionPista(models.Model):
+    estacion = models.ForeignKey(Estacion, on_delete=models.CASCADE)
+    pista = models.ForeignKey(Pista, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f'{self.estacion.nombre} - {self.pista.nombre}'
+
+class EstacionServicio(models.Model):
+    estacion = models.ForeignKey(Estacion, on_delete=models.CASCADE)
+    servicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f'{self.estacion.nombre} - {self.servicio.nombre}'
