@@ -37,7 +37,7 @@ class Estacion(models.Model):
     def __str__(self):
         return self.nombre
 
-class EstacionPistaServicio(models.Model):
+class EstacionPista(models.Model):
     estacion = models.ForeignKey(Estacion, on_delete=models.CASCADE)
     pista = models.ForeignKey(Pista, on_delete=models.CASCADE)
     
