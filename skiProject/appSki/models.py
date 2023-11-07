@@ -15,10 +15,10 @@ class Pista(models.Model):
 
 class Servicio(models.Model):
     nombre = models.CharField(max_length=50)
-    costo = models.FloatField
-    horario = models.TimeField
-    capacidad = models.IntegerField
-    reserva = models.BooleanField
+    costo = models.FloatField(default=0.0)
+    horario = models.TimeField(default='00:00:00')
+    capacidad = models.IntegerField(default=0)
+    reserva = models.BooleanField(default=False)
     def __str__(self):
         return self.nombre
 
@@ -26,10 +26,10 @@ class Estacion(models.Model):
     # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
     nombre = models.CharField(max_length=50)
     localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE)
-    superficie = models.FloatField
-    precio_dia = models.FloatField
-    horario = models.TimeField
-    telefono = models.IntegerField
+    superficie = models.FloatField(default='0.0')
+    precio_dia = models.FloatField(default=0.0)
+    horario = models.TimeField(default='00:00:00')
+    telefono = models.IntegerField(default=0)
     estado = models.CharField(max_length = 50)
     pistas = models.ManyToManyField(Pista, through='EstacionPista')
     servicios = models.ManyToManyField(Servicio, through='EstacionServicio')
