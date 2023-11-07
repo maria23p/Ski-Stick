@@ -17,30 +17,35 @@ def index_localidades(request):
 #devuelve los datos de una localidad
 def show_localidad(request, localidad_id):
 	localidad = get_object_or_404(Localidad, pk=localidad_id)
-	output = f'Detalles de la localidad: {localidad.id}, {localidad.nombre}'
-	return HttpResponse(output)
+	context = {'localidad': localidad }
+	return render(request, 'detail.html', context)
 
 #devuelve las estaciones de cada localidad
 def index_estaciones(request, localidad_id):
 	localidad = get_object_or_404(Localidad, pk=localidad_id)
-	output = ', '.join([e.nombre for e in localidad.estacion_set.all()])
-	return HttpResponse(output)
+	estaciones =  localidad.estacion_set.all()
+	context = {'localidad': localidad, 'estaciones' : estaciones }
+	return render(request, 'estaciones.html', context)
 
 #devuelve los datos de una estacion
 def show_estacion(request, estacion_id):
 	estacion = get_object_or_404(Estacion, pk=estacion_id)
-	output = f'Detalles de la estacion: {estacion.id}, {estacion.nombre}, {estacion.superficie}, {estacion.precio_dia}, {estacion.horario}, {estacion.telefono}, {estacion.estado}. Pistas: {[p.nombre for p in estacion.pistas.all()]}. Servicios: {[s.nombre for s in estacion.servicios.all()]}'
-	return HttpResponse(output)
+	pistas =  estacion.pistas.all()
+	context = { 'estacion': estacion, 'pistas' : pistas }
+	return render(request, 'estacion.html', context)
+
 
 #devuelve los detalles de una pista
 def show_pista(request, pista_id):
 	pista = get_object_or_404(Pista, pk=pista_id)
-	output = f'Detalles de la pista: {pista.id}, {pista.nombre}, {pista.color}, {pista.estado}'
-	return HttpResponse(output)
+	estaciones =  pista.estacion_set.all()
+	context = { 'estaciones': estaciones, 'pista' : pista }
+	return render(request, 'pista.html', context)
 
 #devuelve los detalles de un servicio
 def show_servicio(request, servicio_id):
 	servicio = get_object_or_404(Servicio, pk=servicio_id)
-	output = f'Detalles del servicio: {servicio.id}, {servicio.nombre}, {servicio.costo}, {servicio.horario}, {servicio.capacidad}, {servicio.reserva}'
-	return HttpResponse(output)
+	estaciones =  servicio.estacion_set.all()
+	context = { 'estaciones': estaciones, 'servicio' : servicio }
+	return render(request, 'servicio.html', context)
 

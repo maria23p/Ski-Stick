@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Estaciones de la localidad</title>
+</head>
+
+<body>
+    <div id="content">
+        <h1>Gestor de Estaciones</h1>
+        <h2>Lista de estaciones</h2>
+        <h3>{{ localidad.nombre }}</h3>
+        {% if estaciones %}
+            <ul>
+                {% for e in estaciones %}
+                <li>
+                    <a href="/appSki/estaciones/{{ e.id }}">{{ e.nombre}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay estaciones creadas.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>

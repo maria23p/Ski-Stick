@@ -26,7 +26,7 @@ class Estacion(models.Model):
     # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
     nombre = models.CharField(max_length=50)
     localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE)
-    superficie = models.FloatField(default='0.0')
+    superficie = models.FloatField(default=0.0)
     precio_dia = models.FloatField(default=0.0)
     horario = models.TimeField(default='00:00:00')
     telefono = models.IntegerField(default=0)

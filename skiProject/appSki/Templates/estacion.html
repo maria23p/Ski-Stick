@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Detalles de la estacion</title>
+</head>
+
+<body>
+    <div id="content">
+        <h1>Gestor de Estaciones</h1>
+        <h2>Datos de la estacion</h2>
+
+        {% if estacion %}
+            <ul>
+                <li>
+                    Nombre: {{ estacion.nombre}}
+                </li>
+                <li>
+                    Superficie(km): {{ estacion.superficie}}
+                </li>
+                <li>
+                    Precio por dia: {{ estacion.precio_dia}}
+                </li>
+                <li>
+                    Horario: {{ estacion.horario}}
+                </li>
+                <li>
+                    Telefono: {{ estacion.telefono}}
+                </li>
+                <li>
+                    Estado: {{ estacion.estado}}
+                </li>
+                <li>
+                    Localidad: <a href="/appSki/localidades/{{ estacion.localidad.id }}">{{ estacion.localidad}}</a>
+                </li>
+            </ul>
+            <h3>Lista de pistas</h3>
+            {% if pistas %}
+                <ol>
+                    {% for p in pistas %}
+                        <li>
+                            <a href="/appSki/pistas/{{ p.id }}">{{ p.nombre}}</a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <p>No tiene pistas asociadas.</p>
+            {% endif %}
+
+            <h3>Lista de servicios</h3>
+            {% if servicios %}
+                <ol>
+                    {% for s in servicios %}
+                        <li>
+                            <a href="/appSki/servicios/{{ s.id }}">{{ s.nombre}}</a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <p>No tiene servicios asociadas.</p>
+            {% endif %}
+        {% else %}
+            <p>No existe esta estacion.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
