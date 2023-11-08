@@ -15,10 +15,6 @@ class Pista(models.Model):
 
 class Servicio(models.Model):
     nombre = models.CharField(max_length=50)
-    costo = models.FloatField(default=0.0)
-    horario = models.TimeField(default='00:00:00')
-    capacidad = models.IntegerField(default=0)
-    reserva = models.BooleanField(default=False)
     def __str__(self):
         return self.nombre
 
@@ -28,7 +24,8 @@ class Estacion(models.Model):
     localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE)
     superficie = models.FloatField(default=0.0)
     precio_dia = models.FloatField(default=0.0)
-    horario = models.TimeField(default='00:00:00')
+    horario_ini = models.TimeField(default='00:00:00')
+    horario_fin = models.TimeField(default='00:00:00')
     telefono = models.IntegerField(default=0)
     estado = models.CharField(max_length = 50)
     pistas = models.ManyToManyField(Pista, through='EstacionPista')
@@ -47,6 +44,10 @@ class EstacionPista(models.Model):
 class EstacionServicio(models.Model):
     estacion = models.ForeignKey(Estacion, on_delete=models.CASCADE)
     servicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)
+    costo = models.FloatField(default=0.0)
+    reserva = models.BooleanField(default=False)
+    horario_ini = models.TimeField(default='00:00:00')
+    horario_fin = models.TimeField(default='00:00:00')
     
     def __str__(self):
         return f'{self.estacion.nombre} - {self.servicio.nombre}'

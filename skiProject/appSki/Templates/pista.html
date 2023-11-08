@@ -13,20 +13,18 @@
         <h2>Datos de la pista</h2>
 
         {% if pista %}
-            <h3>{{ pista.nombre}}</h3>
-            <h3>Lista de estaciones</h3>
-            
-            {% if estaciones %}
-            <ol>
-                {% for e in estaciones %}
-                    <li>
-                        <a href="/appSki/estaciones/{{ e.id }}">{{ e.nombre}}</a>
-                    </li>
-                {% endfor %}
-            </ol>
-            {% else %}
-                <p>No tiene estaciones asociados.</p>
-            {% endif %}
+            <h3>Lista de pistas</h3>
+            <ul>
+                <li>
+                    Nombre: {{ pista.nombre}}
+                </li>
+                <li>
+                    Color: {{ pista.color}}
+                </li>
+                <li>
+                    Estado: {{ pista.estado}}
+                </li>
+            </ul>
         {% else %}
             <p>No existe esta pista.</p>
         {% endif %}

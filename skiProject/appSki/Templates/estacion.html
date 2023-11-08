@@ -23,7 +23,10 @@
                     Precio por dia: {{ estacion.precio_dia}}
                 </li>
                 <li>
-                    Horario: {{ estacion.horario}}
+                    Horario de apertura: {{ estacion.horario_ini}}
+                </li>
+                <li>
+                    Horario de cierre: {{ estacion.horario_fin}}
                 </li>
                 <li>
                     Telefono: {{ estacion.telefono}}
@@ -53,13 +56,30 @@
                 <ol>
                     {% for s in servicios %}
                         <li>
-                            <a href="/appSki/servicios/{{ s.id }}">{{ s.nombre}}</a>
+                            <a href="/appSki/servicios/{{ s.id }}">{{ s.nombre }}</a>
+                            <ul>
+                                {% for es in s.estacionservicio_set.all %}
+                                    <li>
+                                        Coste: {{ es.costo }}
+                                    </li>
+                                    <li>
+                                        Reserva: {{ es.reserva }}
+                                    </li>
+                                    <li>
+                                        Horario de apertura: {{ es.horario_ini }}
+                                    </li>
+                                    <li>
+                                        Horario de cierre: {{ es.horario_fin }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </li>
                     {% endfor %}
                 </ol>
             {% else %}
-                <p>No tiene servicios asociadas.</p>
+                <p>No tiene servicios asociados.</p>
             {% endif %}
+
         {% else %}
             <p>No existe esta estacion.</p>
         {% endif %}

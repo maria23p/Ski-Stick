@@ -31,7 +31,8 @@ def index_estaciones(request, localidad_id):
 def show_estacion(request, estacion_id):
 	estacion = get_object_or_404(Estacion, pk=estacion_id)
 	pistas =  estacion.pistas.all()
-	context = { 'estacion': estacion, 'pistas' : pistas }
+	servicios = estacion.servicios.all()
+	context = { 'estacion': estacion, 'pistas' : pistas, 'servicios' : servicios }
 	return render(request, 'estacion.html', context)
 
 
