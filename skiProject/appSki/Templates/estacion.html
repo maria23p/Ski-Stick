@@ -5,26 +5,30 @@
 <head>
     <title>Detalles de la estacion</title>
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <meta charset="utf-8">
+
 
 </head>
 
 <body>
     <div id="content">
-        <!-- volver al principio -->
-        <nav class="boton">
-            <form action ="{% url 'index' %}" method="get">
-                <button type = "submit">Inicio</button>
-            </form>
-        </nav>
+        <header>
+			<nav>
+                <ul class="link">
+                    <li><a href="#datos">Datos de la estacion</a></li>
+                    <li><a href="#pistas">Pistas</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                </ul>
+            </nav>
+        </header>
 
-        <h1>Gestor de Estaciones</h1>
-        <h2>Datos de la estacion</h2>
-
+        <h1>AppSki</h1>
+        
         {% if estacion %}
+            <h2>{{ estacion.nombre}}</h2>
+            <h3 id="datos">Datos de la estacion</h3>
             <ul>
-                <li>
-                    Nombre: {{ estacion.nombre}}
-                </li>
                 <li>
                     Superficie(km): {{ estacion.superficie}}
                 </li>
@@ -47,7 +51,7 @@
                     Localidad: <a href="/appSki/localidades/{{ estacion.localidad.id }}">{{ estacion.localidad}}</a>
                 </li>
             </ul>
-            <h3>Lista de pistas</h3>
+            <h3 id="pistas">Lista de pistas</h3>
             {% if pistas %}
                 <ol>
                     {% for p in pistas %}
@@ -60,28 +64,31 @@
                 <p>No tiene pistas asociadas.</p>
             {% endif %}
 
-            <h3>Lista de servicios</h3>
+            <h3 id="servicios">Lista de servicios</h3>
             {% if servicios %}
                 <ol>
                     {% for s in servicios %}
                         <li>
                             <a href="/appSki/servicios/{{ s.id }}">{{ s.nombre }}</a>
-                            <ul>
-                                {% for es in s.estacionservicio_set.all %}
+                            {% if s %}
+                                <ul>
                                     <li>
-                                        Coste: {{ es.costo }}
+                                        Coste: {{ s.costo }}
                                     </li>
                                     <li>
-                                        Reserva: {{ es.reserva }}
+                                        Reserva: {{ s.reserva }}
                                     </li>
                                     <li>
-                                        Horario de apertura: {{ es.horario_ini }}
+                                        Horario de apertura: {{ s.horario_ini }}
                                     </li>
                                     <li>
-                                        Horario de cierre: {{ es.horario_fin }}
+                                        Horario de cierre: {{ s.horario_fin }}
                                     </li>
-                                {% endfor %}
-                            </ul>
+                                </ul>
+                            {% else %}
+                                <p>No existe ningun servicio.</p>
+                            {% endif %}
+                            
                         </li>
                     {% endfor %}
                 </ol>

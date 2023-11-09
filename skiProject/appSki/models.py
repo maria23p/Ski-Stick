@@ -3,6 +3,7 @@ from django.db import models
 class Localidad(models.Model):
     # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
     nombre = models.CharField(max_length=50)
+    imagen = models.ImageField(upload_to='img',blank=True,null=True,verbose_name='Image')
     def __str__(self):
         return self.nombre
 
@@ -30,6 +31,8 @@ class Estacion(models.Model):
     estado = models.CharField(max_length = 50)
     pistas = models.ManyToManyField(Pista, through='EstacionPista')
     servicios = models.ManyToManyField(Servicio, through='EstacionServicio')
+    imagen = models.ImageField(upload_to='img',blank=True,null=True,verbose_name='Image')
+
     #servicio = models.ManyToManyField(Servicio)
     def __str__(self):
         return self.nombre
@@ -51,3 +54,4 @@ class EstacionServicio(models.Model):
     
     def __str__(self):
         return f'{self.estacion.nombre} - {self.servicio.nombre}'
+    
