@@ -1,16 +1,22 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <title>Detalle de la localidad</title>
 </head>
 
 <body>
     <div id="content">
-        <!-- volver al principio-->
-        <a href="/appSki/localidades/">Ver todas las localidades</a>
-        
+       <!-- volver al principio-->
+        <nav class="boton">
+            <form action ="{% url 'index' %}" method="get">
+                <button type = "submit">Inicio</button>
+            </form>
+        </nav>
+
         <h1>Gestor de Estaciones</h1>
         <h2>Datos de la localidad</h2>
         {% if localidad %}

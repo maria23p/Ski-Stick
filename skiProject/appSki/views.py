@@ -5,8 +5,8 @@ from .models import Localidad, Estacion, Pista, Servicio
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Listado de Localidades:")
-
+    #return HttpResponse("Listado de Localidades:")
+	return render(request, 'index.html')
 
 #devuelve el listado de localidades
 def index_localidades(request):

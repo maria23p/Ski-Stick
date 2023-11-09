@@ -1,18 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="style.css">
     <title>Detalles de la estacion</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
 </head>
 
 <body>
     <div id="content">
-        <!-- volver al principio-->
+        <!-- volver al principio -->
         <nav class="boton">
-            <a href="index.html" class="boton" >Ver todas las localidades</a>
+            <form action ="{% url 'index' %}" method="get">
+                <button type = "submit">Inicio</button>
+            </form>
         </nav>
-        
+
         <h1>Gestor de Estaciones</h1>
         <h2>Datos de la estacion</h2>
 
