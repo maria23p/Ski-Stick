@@ -45,8 +45,8 @@ def show_pista(request, pista_id):
 
 #devuelve los detalles de un servicio
 def show_servicio(request, servicio_id):
-	servicio = get_object_or_404(Servicio, pk=servicio_id)
-	estaciones =  servicio.estacion_set.all()
+	servicio = get_object_or_404( Servicio, pk=servicio_id)
+	estaciones =  Servicio.estacion_set.all()
 	context = { 'estaciones': estaciones, 'servicio' : servicio }
 	return render(request, 'servicio.html', context)
 

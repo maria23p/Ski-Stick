@@ -8,5 +8,4 @@ path('localidades/<int:localidad_id>/estaciones', views.index_estaciones, name='
 path('estaciones/<int:estacion_id>', views.show_estacion, name='estacion'),
 path('pistas/<int:pista_id>', views.show_pista, name='pista'),
 path('servicios/<int:servicio_id>', views.show_servicio, name='servicio'),
-
 ]
