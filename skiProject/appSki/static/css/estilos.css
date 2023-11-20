@@ -32,7 +32,9 @@ nav.boton{
     display: flex;
     flex-direction: column;
     float: left;
-    margin-bottom: 60px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .texto{
@@ -97,4 +99,23 @@ a:link, a:visited{
 
 a:hover{
     color: #dea623;
+}
+
+
+.imagen{
+    flex-direction: row;
+    text-align: center;
+
+    
+}
+
+.imagen img{
+    text-align: center;
+    margin-right: 100px;
+    max-width: 60%; /* Ancho máximo del contenedor padre */
+    max-height: 60%; /* Altura máxima del contenedor padre */
+    width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
+    height: auto;
+    float: right;
+
 }
