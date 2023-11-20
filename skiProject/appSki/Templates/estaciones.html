@@ -1,44 +1,30 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% block titulo %}Listado de localidades{% endblock %}
 
-<head>
-    <title>Estaciones de la localidad</title>
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-
-</head>
-
-<body>
-    <div id="content">
-        
-       <!-- volver al principio -->
-       <nav class="boton">
-            <form action ="{% url 'index' %}" method="get">
-                <button type = "submit">Inicio</button>
-            </form>
-        </nav>
-        
-        <h1>AppSki</h1>
-        <h2>Estaciones</h2>
-        <h3>{{ localidad.nombre }}</h3>
-        {% if estaciones %}
-            {% for e in estaciones %}
-                <div class="imgIndex">
-                    <div class="texto">
-                        <a href="/appSki/estaciones/{{ e.id }}">{{ e.nombre}}</a>
-                    </div>
-                    <div class="imagenes">
-                        {% with "images/"|add:e.nombre|add:".jpg" as imagen %}
-                        <img src="{%static imagen %}" alt="">
-                        {% endwith %}
-                    </div>
+{% block contenido %}
+    <nav class="boton">
+        <form action ="{% url 'index' %}" method="get">
+            <button type = "submit">Inicio</button>
+        </form>
+    </nav>
+    <h2>Estaciones</h2>
+    <h3>{{ localidad.nombre }}</h3>
+    {% if estaciones %}
+        {% for e in estaciones %}
+            <div class="imgIndex">
+                <div class="texto">
+                    <a href="/appSki/estaciones/{{ e.id }}">{{ e.nombre}}</a>
                 </div>
-                
-            {% endfor %}
-        {% else %}
-            <p>No hay estaciones creadas.</p>
-        {% endif %}
-    </div>
-</body>
-
-</html>
+                <div class="imagenes">
+                    {% with "images/"|add:e.nombre|add:".jpg" as imagen %}
+                    <img src="{% static imagen %}" alt="">
+                    {% endwith %}
+                </div>
+            </div>
+            
+        {% endfor %}
+    {% else %}
+        <p>No hay estaciones creadas.</p>
+    {% endif %}
+{% endblock %}

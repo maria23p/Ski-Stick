@@ -1,7 +1,7 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.shortcuts import render
-from .models import Localidad, Estacion, Pista, Servicio
+from .models import Localidad, Estacion, Pista, Servicio, EstacionServicio
 
 # Create your views here.
 def index(request):
@@ -26,7 +26,7 @@ def index_estaciones(request, localidad_id):
 def show_estacion(request, estacion_id):
 	estacion = get_object_or_404(Estacion, pk=estacion_id)
 	pistas =  estacion.pistas.all()
-	servicios = estacion.servicios.all()
+	servicios = EstacionServicio.objects.filter(estacion = estacion)
 	context = { 'estacion': estacion, 'pistas' : pistas, 'servicios' : servicios }
 	return render(request, 'estacion.html', context)
 

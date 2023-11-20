@@ -1,105 +1,91 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% block titulo %}Detalles de la estacion{% endblock %}
 
-<head>
-    <title>Detalles de la estacion</title>
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    <meta charset="utf-8">
+{% block contenido %}
+<header>
+    <nav>
+        <ul class="link">
+            <li><a href="#datos">Datos de la estacion</a></li>
+            <li><a href="#pistas">Pistas</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+        </ul>
+    </nav>
+</header>
 
+{% if estacion %}
+    <h2>{{ estacion.nombre}}</h2>
+    <h3 id="datos">Datos de la estacion</h3>
+    <ul>
+        <li>
+            Superficie(km): {{ estacion.superficie}}
+        </li>
+        <li>
+            Precio por dia: {{ estacion.precio_dia}}
+        </li>
+        <li>
+            Horario de apertura: {{ estacion.horario_ini}}
+        </li>
+        <li>
+            Horario de cierre: {{ estacion.horario_fin}}
+        </li>
+        <li>
+            Telefono: {{ estacion.telefono}}
+        </li>
+        <li>
+            Estado: {{ estacion.estado}}
+        </li>
+        <li>
+            Localidad: <a href="/appSki/localidades/{{ estacion.localidad.id }}/estaciones">{{ estacion.localidad}}</a>
+        </li>
+    </ul>
+    <h3 id="pistas">Lista de pistas</h3>
+    {% if pistas %}
+        <ol>
+            {% for p in pistas %}
+                <li>
+                    <a href="/appSki/pistas/{{ p.id }}">{{ p.nombre}}</a>
+                </li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>No tiene pistas asociadas.</p>
+    {% endif %}
 
-</head>
-
-<body>
-    <div id="content">
-        <header>
-			<nav>
-                <ul class="link">
-                    <li><a href="#datos">Datos de la estacion</a></li>
-                    <li><a href="#pistas">Pistas</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="{% url 'index' %}">Inicio</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <h1>AppSki</h1>
-        
-        {% if estacion %}
-            <h2>{{ estacion.nombre}}</h2>
-            <h3 id="datos">Datos de la estacion</h3>
-            <ul>
+    <h3 id="servicios">Lista de servicios</h3>
+    {% if servicios %}
+        <ol>
+            {% for s in servicios %}
                 <li>
-                    Superficie(km): {{ estacion.superficie}}
+                    <a href="/appSki/servicios/{{ s.servicio.id }}">{{ s.servicio.nombre }}</a>
+                    {% if s %}
+                        <ul>
+                            <li>
+                                Coste: {{ s.costo }}
+                            </li>
+                            <li>
+                                Reserva: {{ s.reserva }}
+                            </li>
+                            <li>
+                                Horario de apertura: {{ s.horario_ini }}
+                            </li>
+                            <li>
+                                Horario de cierre: {{ s.horario_fin }}
+                            </li>
+                        </ul>
+                    {% else %}
+                        <p>No existe ningun servicio.</p>
+                    {% endif %}
+                    
                 </li>
-                <li>
-                    Precio por dia: {{ estacion.precio_dia}}
-                </li>
-                <li>
-                    Horario de apertura: {{ estacion.horario_ini}}
-                </li>
-                <li>
-                    Horario de cierre: {{ estacion.horario_fin}}
-                </li>
-                <li>
-                    Telefono: {{ estacion.telefono}}
-                </li>
-                <li>
-                    Estado: {{ estacion.estado}}
-                </li>
-                <li>
-                    Localidad: <a href="/appSki/localidades/{{ estacion.localidad.id }}/estaciones">{{ estacion.localidad}}</a>
-                </li>
-            </ul>
-            <h3 id="pistas">Lista de pistas</h3>
-            {% if pistas %}
-                <ol>
-                    {% for p in pistas %}
-                        <li>
-                            <a href="/appSki/pistas/{{ p.id }}">{{ p.nombre}}</a>
-                        </li>
-                    {% endfor %}
-                </ol>
-            {% else %}
-                <p>No tiene pistas asociadas.</p>
-            {% endif %}
-
-            <h3 id="servicios">Lista de servicios</h3>
-            {% if servicios %}
-                <ol>
-                    {% for s in servicios %}
-                        <li>
-                            <a href="/appSki/servicios/{{ s.id }}">{{ s.nombre }}</a>
-                            {% if s %}
-                                <ul>
-                                    <li>
-                                        Coste: {{ s.costo }}
-                                    </li>
-                                    <li>
-                                        Reserva: {{ s.reserva }}
-                                    </li>
-                                    <li>
-                                        Horario de apertura: {{ s.horario_ini }}
-                                    </li>
-                                    <li>
-                                        Horario de cierre: {{ s.horario_fin }}
-                                    </li>
-                                </ul>
-                            {% else %}
-                                <p>No existe ningun servicio.</p>
-                            {% endif %}
-                            
-                        </li>
-                    {% endfor %}
-                </ol>
-            {% else %}
-                <p>No tiene servicios asociados.</p>
-            {% endif %}
-            
-        {% else %}
-            <p>No existe esta estacion.</p>
-        {% endif %}
-    </div>
-</body>
-
-</html>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>No tiene servicios asociados.</p>
+    {% endif %}
+    
+{% else %}
+    <p>No existe esta estacion.</p>
+{% endif %}
+{% endblock %}

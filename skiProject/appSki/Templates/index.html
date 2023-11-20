@@ -1,36 +1,29 @@
+{% extends "base.html" %}
 {% load static %}
+{% block titulo %}Listado de localidades{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-        <title>Listado de localidades</title>
-    </head>
-    <body>
-        <div class="content">
-	     <h1>AppSki</h1>
-         {% if lista_localidades %}
-            {% for l in lista_localidades %}
-            
-            <!-- cuando pulsas en una localidad te lleva a ella -->
-            <div class="imgIndex">
-                <div class="texto">
-                    <a href="/appSki/localidades/{{ l.id }}/estaciones">{{ l.nombre}}</a>
-                </div>
-                <div class="imagenes">
-                    {% with "images/"|add:l.nombre|add:".jpg" as imagen %}
-                    <img src="{%static imagen %}" alt="">
-                    {% endwith %}
-                </div>
-            </div>
-                
-                
-            
-            {% endfor %}
-             
-         {% else %}
-         <p>No hay localidades creadas.</p>
-         {% endif %}
+{% block contenido %}
+
+{% if lista_localidades %}
+    {% for l in lista_localidades %}
+    
+    <!-- cuando pulsas en una localidad te lleva a ella -->
+    <div class="imgIndex">
+        <div class="texto">
+            <a href="/appSki/localidades/{{ l.id }}/estaciones">{{ l.nombre}}</a>
         </div>
-    </body>
-</html>
+        <div class="imagenes">
+            {% with "images/"|add:l.nombre|add:".jpg" as imagen %}
+                <img src="{% static imagen %}" alt="">
+            {% endwith %}
+        </div>
+    </div>
+        
+
+    {% endfor %}
+             
+{% else %}
+    <p>No hay localidades creadas.</p>
+{% endif %}
+
+{% endblock %}

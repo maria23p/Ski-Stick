@@ -7,14 +7,14 @@ html{
 body{    
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
     background-color: rgb(237, 232, 232);
+    margin: 0 auto;
     margin-top: 65px;
     margin-left: 150px;
     margin-right: 150px;
     padding: 10px;
     border: 2px solid black;
     max-width: 100%; 
-    display: flex;
-    align-items: center;
+    min-height: 65vh;
 }
 
 
@@ -24,7 +24,7 @@ h1{
 
 nav.boton{
     float: right;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 
@@ -61,7 +61,8 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    float: right;
+    margin: 0 auto;
+    max-width: 470px; 
 }
 
 nav ul{

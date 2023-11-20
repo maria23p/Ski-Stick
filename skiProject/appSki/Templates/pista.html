@@ -1,41 +1,31 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% block titulo %}Listado de localidades{% endblock %}
 
-<head>
-    <title>Detalles de la pista</title>
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-</head>
+{% block contenido %}
+<!-- volver al principio-->
+<nav class="boton">
+    <form action ="{% url 'index' %}" method="get">
+        <button type = "submit">Inicio</button>
+    </form>
+</nav>
+<h1>AppSki</h1>
 
-<body>
-    <div id="content">
-        <!-- volver al principio-->
-        <nav class="boton">
-            <form action ="{% url 'index' %}" method="get">
-                <button type = "submit">Inicio</button>
-            </form>
-        </nav>
-        <h1>AppSki</h1>
+<h2>Datos de la pista</h2>
 
-        <h2>Datos de la pista</h2>
-
-        {% if pista %}
-            <ul>
-                <li>
-                    Nombre: {{ pista.nombre}}
-                </li>
-                <li>
-                    Color: {{ pista.color}}
-                </li>
-                <li>
-                    Estado: {{ pista.estado}}
-                </li>
-            </ul>
-        {% else %}
-            <p>No existe esta pista.</p>
-        {% endif %}
-
-    </div>
-</body>
-
-</html>
+{% if pista %}
+    <ul>
+        <li>
+            Nombre: {{ pista.nombre}}
+        </li>
+        <li>
+            Color: {{ pista.color}}
+        </li>
+        <li>
+            Estado: {{ pista.estado}}
+        </li>
+    </ul>
+{% else %}
+    <p>No existe esta pista.</p>
+{% endif %}
+{% endblock %}

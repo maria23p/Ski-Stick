@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        <title>{% block titulo %}AppSki{% endblock %}</title>
+    </head>
+    <body>
+        <div id="content">
+	     <h1>AppSki</h1>
+            {% block contenido %}{% endblock %}
+        </div>
+    </body>
+</html>
