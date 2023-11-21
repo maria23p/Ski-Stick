@@ -20,8 +20,8 @@ h1{
 }
 
 nav.boton{
-    float: right;
     margin-right: 10px;
+    float: right;
 }
 
 
@@ -118,21 +118,6 @@ a:hover{
 
 }
 
-.imagen_pista{
-    flex-direction: row;
-    text-align: center; 
-}
-
-.imagen_pista img{
-    text-align: center;
-    margin-right: 100px;
-    max-width: 60%; /* Ancho máximo del contenedor padre */
-    max-height: 60%; /* Altura máxima del contenedor padre */
-    width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
-    height: auto;
-    float: right;
-
-}
 
 .contenido-servicio {
     display: flex;
@@ -143,6 +128,19 @@ a:hover{
     flex-grow: 1;
 }
 
+.imagen_pista{
+    flex-direction: row;
+    text-align: center;
+}
+
+.imagen_pista img{
+    text-align: center;
+    max-width: 30%;
+    max-height: 30%;
+    width: auto;
+    height: auto;
+}
+
 .imagenes_servicio {
     flex-direction: row;
     text-align: center;
@@ -150,8 +148,7 @@ a:hover{
 
 .imagen_servicio img{
     text-align: center;
-    /* aqui va 100px */
-    margin-right: 400px;
+    margin-right: 100px;
     max-width: 40%; /* Ancho máximo del contenedor padre */
     max-height: 40%; /* Altura máxima del contenedor padre */
     width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */

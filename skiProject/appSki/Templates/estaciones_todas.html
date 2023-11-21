@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Todas las estaciones{% endblock %}
+
+{% block contenido %}
+    <h2>Listado de todas las estaciones</h2>
+    {% if todas_las_estaciones %}
+        {% for e in todas_las_estaciones %}
+        <ul>
+            {{ e.nombre}}
+        </ul>
+            
+        {% endfor %}
+    {% else %}
+        <p>No hay estaciones creadas.</p>
+    {% endif %}
+{% endblock %}

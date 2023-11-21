@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Listado de localidades{% endblock %}
+
+{% block contenido %}
+
+{% if lista_localidades %}
+    {% for l in lista_localidades %}
+    
+    <!-- cuando pulsas en una localidad te lleva a ella -->
+    <div class="imgIndex">
+        <div class="texto">
+            <a href="{% url 'estaciones' localidad_id=l.id %}">{{ l.nombre}}</a>
+        </div>
+        <div class="imagenes">
+            {% with "images/"|add:l.nombre|add:".jpg" as imagen %}
+                <img src="{% static imagen %}" alt="">
+            {% endwith %}
+        </div>
+    </div>
+        
+
+    {% endfor %}
+             
+{% else %}
+    <p>No hay localidades creadas.</p>
+{% endif %}
+
+{% endblock %}

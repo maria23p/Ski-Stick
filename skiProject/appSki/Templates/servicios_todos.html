@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Todas las pistas{% endblock %}
+
+{% block contenido %}
+    <h2>Listado de todos los servicios</h2>
+    {% if servicios_unicos %}
+        {% for s in servicios_unicos %}
+        <ul>
+            {{ s.nombre}}
+        </ul>
+            
+        {% endfor %}
+    {% else %}
+        <p>No hay servicios creados.</p>
+    {% endif %}
+{% endblock %}

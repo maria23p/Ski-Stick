@@ -12,8 +12,60 @@ def index(request):
 def index_localidades(request):
 	localidades = get_list_or_404(Localidad.objects.order_by('nombre'))
 	context = {'lista_localidades': localidades }	
-	return render(request, 'index.html', context)
+	return render(request, 'localidades.html', context)
 
+#devuelve listado de estaciones
+def estaciones_todas(request):
+    # Obtener todas las localidades
+    localidades = Localidad.objects.all()
+
+    # Crear una lista para almacenar todas las estaciones
+    todas_las_estaciones = []
+
+    # Iterar sobre todas las localidades y obtener sus estaciones
+    for localidad in localidades:
+        estaciones_localidad = Estacion.objects.filter(localidad=localidad)
+        todas_las_estaciones.extend(estaciones_localidad)
+
+    # Ahora tienes todas las estaciones en la lista todas_las_estaciones
+    # Puedes pasar esta lista al contexto y renderizarla en tu plantilla
+    context = {'todas_las_estaciones': todas_las_estaciones}
+    return render(request, 'estaciones_todas.html', context)
+
+#devuelve listado de pistas
+def pistas_todas(request):
+    # Obtener todas las estaciones
+    estaciones = Estacion.objects.all()
+
+    # Crear una lista para almacenar todas las pistas
+    todas_las_pistas = []
+
+    # Iterar sobre todas las estaciones y obtener sus pistas
+    for estacion in estaciones:
+        pistas_estacion = Pista.objects.filter(estacion=estacion)
+        todas_las_pistas.extend(pistas_estacion)
+
+    # Ahora tienes todas las pistas en la lista todas_las_pistas
+    # Puedes pasar esta lista al contexto y renderizarla en tu plantilla
+    context = {'todas_las_pistas': todas_las_pistas}
+    return render(request, 'pistas_todas.html', context)
+
+#devuelve listado de servicios
+def servicios_todos(request):
+    # Obtener todas las estaciones
+    estaciones = Estacion.objects.all()
+
+    # Crear un conjunto para almacenar los servicios sin duplicados
+    servicios_unicos = set()
+
+    # Iterar sobre las estaciones y agregar sus servicios al conjunto
+    for estacion in estaciones:
+        servicios_estacion = Servicio.objects.filter(estacion=estacion)
+        servicios_unicos.update(servicios_estacion)
+
+    # Puedes pasar este conjunto al contexto y renderizarlo en tu plantilla
+    context = {'servicios_unicos': servicios_unicos}
+    return render(request, 'servicios_todos.html', context)
 
 #devuelve las estaciones de cada localidad
 def index_estaciones(request, localidad_id):

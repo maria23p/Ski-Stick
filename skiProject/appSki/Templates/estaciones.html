@@ -3,18 +3,13 @@
 {% block titulo %}Listado de localidades{% endblock %}
 
 {% block contenido %}
-    <nav class="boton">
-        <form action ="{% url 'index' %}" method="get">
-            <button type = "submit">Inicio</button>
-        </form>
-    </nav>
     <h2>Estaciones</h2>
     <h3>{{ localidad.nombre }}</h3>
     {% if estaciones %}
         {% for e in estaciones %}
             <div class="imgIndex">
                 <div class="texto">
-                    <a href="/appSki/estaciones/{{ e.id }}">{{ e.nombre}}</a>
+                    <a href="{% url 'estacion' estacion_id=e.id%}">{{ e.nombre}}</a>
                 </div>
                 <div class="imagenes">
                     {% with "images/"|add:e.nombre|add:".jpg" as imagen %}

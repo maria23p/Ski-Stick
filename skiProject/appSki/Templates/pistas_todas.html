@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Todas las pistas{% endblock %}
+
+{% block contenido %}
+    <h2>Listado de todas las pistas</h2>
+    {% if todas_las_pistas %}
+        {% for p in todas_las_pistas %}
+        <ul>
+            {{ p.nombre}}
+        </ul>
+            
+        {% endfor %}
+    {% else %}
+        <p>No hay pistas creadas.</p>
+    {% endif %}
+{% endblock %}
