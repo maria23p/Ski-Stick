@@ -6,7 +6,9 @@ from .models import Localidad, Estacion, Pista, Servicio, EstacionServicio
 # Create your views here.
 def index(request):
     #return HttpResponse("Listado de Localidades:")
-	return render(request, 'index.html')
+    estacionesFiltradas = Estacion.objects.raw('SELECT * FROM( SELECT * FROM appSki_Estacion ORDER BY Superficie DESC) GROUP BY localidad_id')
+    context = {'estaciones_filtradas': estacionesFiltradas}
+    return render(request, 'index.html', context)
 
 #devuelve el listado de localidades
 def index_localidades(request):

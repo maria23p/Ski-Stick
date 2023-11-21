@@ -54,7 +54,7 @@ nav.boton{
 }
 
 
-header{
+/*header{
     background-color: rgb(223, 216, 216);
     color: white;
     padding: 10px 0;
@@ -64,7 +64,7 @@ header{
     margin: 0 auto;
     max-width: 470px; 
 }
-
+*/
 nav ul{
     list-style: none;
     margin: 0;
@@ -156,3 +156,20 @@ a:hover{
     float: right;
 
 }
+
+
+.portada {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+
+  }
+.localidad {
+    text-align: center;
+    margin: 0 15px; 
+  }
+.imagen img {
+    width: 800px; 
+    height: auto; 
+  }
+  

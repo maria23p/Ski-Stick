@@ -1,3 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 {% block titulo %}Portada{% endblock %}
+
+{% block contenido %}
+<div class="portada">
+    {% for estacion in estaciones_filtradas %}
+        <div class="localidad">
+            <h2>{{ estacion.localidad.nombre }}</h2>
+            
+            {% with estacion_filtrada=estacion %}
+                {% if estacion_filtrada %}
+                <h3><a href="{% url 'estacion' estacion_filtrada.id %}">{{ estacion_filtrada.nombre }}</a></h3>
+                    <div class="imagen">
+                        {% with "images/"|add:estacion_filtrada.nombre|add:".jpg" as imagen %}
+                            <img src="{% static imagen %}" alt="{{ estacion_filtrada.nombre }}">
+                        {% endwith %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
+
