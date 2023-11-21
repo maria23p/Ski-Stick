@@ -150,7 +150,8 @@ a:hover{
 
 .imagen_servicio img{
     text-align: center;
-    margin-right: 100px;
+    /* aqui va 100px */
+    margin-right: 400px;
     max-width: 40%; /* Ancho máximo del contenedor padre */
     max-height: 40%; /* Altura máxima del contenedor padre */
     width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
