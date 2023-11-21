@@ -1,20 +1,17 @@
 /* general  */
                                      
 /* datos para probar solo*/
-html{
-    background-color:#f3f2f2; 
-}
 body{    
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
     background-color: rgb(237, 232, 232);
     margin: 0 auto;
     margin-top: 65px;
-    margin-left: 150px;
-    margin-right: 150px;
     padding: 10px;
-    border: 2px solid black;
     max-width: 100%; 
     min-height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -29,6 +26,7 @@ nav.boton{
 
 
 .imgIndex {
+
     display: flex;
     flex-direction: column;
     float: left;
@@ -49,8 +47,8 @@ nav.boton{
 }
 
 .imagenes img{
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     text-align: center;
     margin-right: 20px;
 }
@@ -114,6 +112,47 @@ a:hover{
     margin-right: 100px;
     max-width: 60%; /* Ancho máximo del contenedor padre */
     max-height: 60%; /* Altura máxima del contenedor padre */
+    width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
+    height: auto;
+    float: right;
+
+}
+
+.imagen_pista{
+    flex-direction: row;
+    text-align: center; 
+}
+
+.imagen_pista img{
+    text-align: center;
+    margin-right: 100px;
+    max-width: 60%; /* Ancho máximo del contenedor padre */
+    max-height: 60%; /* Altura máxima del contenedor padre */
+    width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
+    height: auto;
+    float: right;
+
+}
+
+.contenido-servicio {
+    display: flex;
+    justify-content: space-between;
+}
+
+.texto_servicio {
+    flex-grow: 1;
+}
+
+.imagenes_servicio {
+    flex-direction: row;
+    text-align: center;
+}
+
+.imagen_servicio img{
+    text-align: center;
+    margin-right: 100px;
+    max-width: 40%; /* Ancho máximo del contenedor padre */
+    max-height: 40%; /* Altura máxima del contenedor padre */
     width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
     height: auto;
     float: right;
