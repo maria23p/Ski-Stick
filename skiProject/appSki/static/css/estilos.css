@@ -173,8 +173,8 @@ a:hover{
 }
 
 .imagenPortada img {
-    max-width: 800px; /* Ancho máximo absoluto */
-    max-height: 600px; /* Altura máxima absoluto */
+    max-width: 800px; /* Ancho máximo del contenedor padre */
+    max-height: 600px; /* Altura máxima del contenedor padre */
     width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
-    height: auto; /* Permite que la altura se ajuste automáticamente según la anchura */
+    height: auto;
 }
