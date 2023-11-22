@@ -54,7 +54,7 @@ nav.boton{
 }
 
 
-/*header{
+.link1{
     background-color: rgb(223, 216, 216);
     color: white;
     padding: 10px 0;
@@ -62,9 +62,9 @@ nav.boton{
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    max-width: 470px; 
+    max-width: 525px; 
 }
-*/
+
 nav ul{
     list-style: none;
     margin: 0;
@@ -78,13 +78,13 @@ nav ul li{
 }
 
 
-.link a{
+.link1 a{
     padding: 10px;
     text-decoration: none;
     color: rgb(46, 56, 122);
 }   
 
-.link a:hover{
+.link1 a:hover{
     text-decoration: none;
     color: white;
     background-color: rgb(108, 111, 130);
@@ -173,8 +173,6 @@ a:hover{
 }
 
 .imagenPortada img {
-    max-width: 800px; /* Ancho máximo del contenedor padre */
-    max-height: 600px; /* Altura máxima del contenedor padre */
-    width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
-    height: auto;
+    width: 350px; /* Ancho máximo del contenedor padre */
+    height: 250px; /* Altura máxima del contenedor padre */
 }
