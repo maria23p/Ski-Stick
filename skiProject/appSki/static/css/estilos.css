@@ -162,14 +162,19 @@ a:hover{
     display: flex; 
     justify-content: space-between; 
     align-items: flex-start; 
-
-  }
+}
 .localidad {
     text-align: center;
     margin: 0 15px; 
-  }
-.imagen img {
-    width: 800px; 
-    height: auto; 
-  }
-  
+}
+.imagenPortada{
+    flex-direction: row;
+    text-align: center;   
+}
+
+.imagenPortada img {
+    max-width: 800px; /* Ancho máximo absoluto */
+    max-height: 600px; /* Altura máxima absoluto */
+    width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
+    height: auto; /* Permite que la altura se ajuste automáticamente según la anchura */
+}
