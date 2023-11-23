@@ -2,6 +2,7 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.shortcuts import render
 from .models import Localidad, Estacion, Pista, Servicio, EstacionServicio
+from .forms import MiFormulario  
 
 # Create your views here.
 def index(request):
@@ -99,3 +100,17 @@ def show_servicio(request, servicio_id):
 	context = { 'estaciones': estaciones, 'servicio' : servicio }
 	return render(request, 'servicio.html', context)
 
+#formulario
+
+def show_formulario(request):
+    if request.method == 'POST':
+        formulario = MiFormulario(request.POST)
+        if formulario.is_valid():
+            nombre = formulario.cleaned_data['nombre']
+            email = formulario.cleaned_data['email']
+            mensaje = formulario.cleaned_data['mensaje']
+            # Realizar acciones con estos datos, como guardarlos en la BD, enviar un correo, etc.
+    else:
+        formulario = MiFormulario()
+    
+    return render(request, 'formulario.html', {'formulario': formulario})

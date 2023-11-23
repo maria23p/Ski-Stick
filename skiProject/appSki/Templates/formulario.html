@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{% static 'css/estilosformulario.css' %}">
+        <title>Formulario</title>
+    </head>
+    <body>
+        <h1> Viajes para esquiar en grupo</h1>
+        <p>
+            ¿Quieres proponer a tus compañeros de trabajo un plan inolvidable?
+            ¿Formas parte de un grupo y queréis hacer una escapada a la nieve? ¿Sois un grupo de escolares y queréis ir a esquiar?
+        </p>
+      
+        <form method="post">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+    </body>
+</html>
