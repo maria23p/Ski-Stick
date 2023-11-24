@@ -1,6 +1,6 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404, get_list_or_404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Localidad, Estacion, Pista, Servicio, EstacionServicio
 from .forms import MiFormulario  
 
@@ -106,11 +106,13 @@ def show_formulario(request):
     if request.method == 'POST':
         formulario = MiFormulario(request.POST)
         if formulario.is_valid():
-            nombre = formulario.cleaned_data['nombre']
-            email = formulario.cleaned_data['email']
-            mensaje = formulario.cleaned_data['mensaje']
-            # Realizar acciones con estos datos, como guardarlos en la BD, enviar un correo, etc.
+            datos_formulario = formulario.cleaned_data
+
+            # Realizar acciones con estos datos, como guardarlos en la BD, enviar un correo, etc. MIRAR ESTO!
+            return redirect('index')  
     else:
         formulario = MiFormulario()
     
     return render(request, 'formulario.html', {'formulario': formulario})
+
+

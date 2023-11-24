@@ -1,21 +1,118 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="{% static 'css/estilosformulario.css' %}">
-        <title>Formulario</title>
-    </head>
-    <body>
-        <h1> Viajes para esquiar en grupo</h1>
-        <p>
-            ¿Quieres proponer a tus compañeros de trabajo un plan inolvidable?
-            ¿Formas parte de un grupo y queréis hacer una escapada a la nieve? ¿Sois un grupo de escolares y queréis ir a esquiar?
-        </p>
-      
-        <form method="post">
-            {% csrf_token %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/estilosformulario.css' %}">
+    <title>Formulario</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Viajes para esquiar en grupo</h1>
+    <p>
+        ¿Quieres organizar un viaje inolvidable para esquiar con tu grupo? ¿Eres parte de una empresa,
+        un grupo numeroso o un grupo escolar buscando una escapada a la nieve? En Esquiades.com te ofrecemos
+        una amplia selección de alojamientos y hoteles especialmente diseñados para grupos. Tenemos ofertas
+        adaptadas a empresas, grupos de más de 25 personas y escolares. Además de forfaits, alojamiento, material
+        de esquí y comidas en pista, también podemos organizar otros servicios según vuestras necesidades.
+    </p>
+    <p>
+        Con años de experiencia y clientes satisfechos, hemos ofrecido los mejores precios y un trato personalizado
+        para viajes de esquí en grupo. Si estás interesado en obtener más información y un presupuesto personalizado,
+        completa el siguiente formulario y uno de nuestros agentes especializados en viajes de esquí para grupos
+        se pondrá en contacto contigo.
+    </p>
+    <!-- CAMBIAR A JPJ -->
+    <div class="foto">
+        <label for="people"> +25 personas </label>
+        <img src="{% static 'images/people.png' %}" alt="Descripción de la imagen 2">
+    </div>
+    <div class="foto">
+        <label for="companies">Empresas</label>
+        <img src="{% static 'images/companies.png' %}" alt="Descripción de la imagen 2">
+    </div>
+    <div class="foto">
+        <label for="schoolchildren">Escolares</label>
+        <img src="{% static 'images/schoolchildren.png' %}" alt="Descripción de la imagen 2">
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
             {{ formulario.as_p }}
+        </div>
+        <p>
+            Enviando este formulario entiendes y aceptas de forma expresa
+            la política de privacidad de datos. Este sitio está protegido por
+            reCAPTCHA y las políticas de privacidad de Google y condiciones de uso.
+        </p>
         <button type="submit">Enviar</button>
     </form>
-    </body>
+</div>
+</body>
+</html> 
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/estilosformulario.css' %}">
+    <title>Formulario</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Viajes para esquiar en grupo</h1>
+        <p>
+            ¿Quieres organizar un viaje inolvidable para esquiar con tu grupo? ¿Eres parte de una empresa,
+            un grupo numeroso o un grupo escolar buscando una escapada a la nieve? En Esquiades.com te ofrecemos
+            una amplia selección de alojamientos y hoteles especialmente diseñados para grupos. Tenemos ofertas
+            adaptadas a empresas, grupos de más de 25 personas y escolares. Además de forfaits, alojamiento, material
+            de esquí y comidas en pista, también podemos organizar otros servicios según vuestras necesidades.
+        </p>
+        <p>
+            Con años de experiencia y clientes satisfechos, hemos ofrecido los mejores precios y un trato personalizado
+            para viajes de esquí en grupo. Si estás interesado en obtener más información y un presupuesto personalizado,
+            completa el siguiente formulario y uno de nuestros agentes especializados en viajes de esquí para grupos
+            se pondrá en contacto contigo.
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos">
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono">
+            </div>
+
+            <div class="form-group">
+                <label for="edad">Edad:</label>
+                <input type="text" id="edad" name="edad">
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <p>
+                Enviando este formulario entiendes y aceptas de forma expresa
+                la política de privacidad de datos. Este sitio está protegido por
+                reCAPTCHA y las políticas de privacidad de Google y condiciones de uso.
+            </p>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
 </html>
+ -->
