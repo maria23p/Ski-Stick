@@ -45,7 +45,7 @@
             Estado: {{ estacion.estado}}
         </li>
         <li>
-            Localidad: <a href="{% url 'estaciones' localidad_id=estacion.localidad.id %}">{{ estacion.localidad}}</a>
+            Localidad: <a href="{% url 'estaciones' pk=estacion.localidad.id %}">{{ estacion.localidad}}</a>
         </li>
     </ul>
     
@@ -54,7 +54,7 @@
         <ol>
             {% for p in pistas %}
                 <li>
-                    <a href="{% url 'pista' pista_id=p.id %}">{{ p.nombre}}</a>
+                    <a href="{% url 'pista' pk=p.id %}">{{ p.nombre}}</a>
                 </li>
             {% endfor %}
         </ol>
@@ -69,7 +69,7 @@
         <ol>
             {% for s in servicios %}
                 <li>
-                    <a href="{% url 'servicio' servicio_id=s.servicio.id %}">{{ s.servicio.nombre}}</a>
+                    <a href="{% url 'servicio' pk=s.servicio.id %}">{{ s.servicio.nombre}}</a>
                     {% if s %}
                         <ul>
                             <li>

@@ -10,7 +10,7 @@
     <!-- cuando pulsas en una localidad te lleva a ella -->
     <div class="imgIndex">
         <div class="texto">
-            <a href="{% url 'estaciones' localidad_id=l.id %}">{{ l.nombre}}</a>
+            <a href="{% url 'estaciones' pk=l.id %}">{{ l.nombre}}</a>
         </div>
         <div class="imagenes">
             {% with "images/"|add:l.nombre|add:".jpg" as imagen %}

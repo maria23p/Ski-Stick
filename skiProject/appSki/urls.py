@@ -2,14 +2,14 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-path('', views.index, name='index'),
-path('localidades/', views.index_localidades, name='localidades'),
-path('todas_estaciones/', views.estaciones_todas, name = 'estaciones_todas'),
-path('todas_pistas/', views.pistas_todas, name='pistas_todas'),
-path('todos_servicios/', views.servicios_todos, name='servicios_todos'),
-path('localidades/<int:localidad_id>/estaciones', views.index_estaciones, name='estaciones'),
-path('estaciones/<int:estacion_id>', views.show_estacion, name='estacion'),
-path('pistas/<int:pista_id>', views.show_pista, name='pista'),
-path('servicios/<int:servicio_id>', views.show_servicio, name='servicio'),
-path('show_formulario/', views.show_formulario, name='show_formulario'),
+path('', views.PortadaListView.as_view(), name='index'),
+path('localidades/', views.LocalidadesListView.as_view(), name='localidades'),
+path('todas_estaciones/', views.EstacionesListView.as_view(), name = 'estaciones_todas'),
+path('todas_pistas/', views.PistasListView.as_view(), name='pistas_todas'),
+path('todos_servicios/', views.ServiciosListView.as_view(), name='servicios_todos'),
+path('localidades/<int:pk>/estaciones', views.EstacionesLocalidadListView.as_view(), name='estaciones'),
+path('estaciones/<int:pk>', views.EstacionDetailView.as_view(), name='estacion'),
+path('pistas/<int:pk>', views.PistaDetailView.as_view(), name='pista'),
+path('servicios/<int:pk>', views.ServicioDetailView.as_view(), name='servicio'),
+path('show_formulario/', views.FormularioView.as_view(), name='show_formulario'),
 ]
