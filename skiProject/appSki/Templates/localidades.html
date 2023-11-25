@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-{% block titulo %}Listado de localidades{% endblock %}
+{% load i18n %}
+{% block titulo %}{% trans 'Listado de localidades' %}{% endblock %}
 
 {% block contenido %}
 
@@ -10,7 +11,7 @@
     <!-- cuando pulsas en una localidad te lleva a ella -->
     <div class="imgIndex">
         <div class="texto">
-            <a href="{% url 'estaciones' pk=l.id %}">{{ l.nombre}}</a>
+            <a href="{% url 'estaciones' pk=l.id %}">{% trans l.nombre %}</a>
         </div>
         <div class="imagenes">
             {% with "images/"|add:l.nombre|add:".jpg" as imagen %}
@@ -23,7 +24,7 @@
     {% endfor %}
              
 {% else %}
-    <p>No hay localidades creadas.</p>
+    <p>{% trans 'No hay localidades creadas.' %}</p>
 {% endif %}
 
 {% endblock %}

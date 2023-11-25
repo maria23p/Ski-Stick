@@ -1,0 +1,243 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-25 21:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: appSki/Templates/base.html:4 appSki/Templates/base2.html:4
+msgid "en"
+msgstr ""
+
+#: appSki/Templates/base.html:14 appSki/Templates/base2.html:14
+msgid "Inicio"
+msgstr "Home"
+
+#: appSki/Templates/base.html:15 appSki/Templates/base2.html:15
+msgid "Localidades"
+msgstr "Locations"
+
+#: appSki/Templates/base.html:16 appSki/Templates/base2.html:16
+#: appSki/Templates/estaciones.html:7
+msgid "Estaciones"
+msgstr "Ski Resorts"
+
+#: appSki/Templates/base.html:17 appSki/Templates/base2.html:17
+msgid "Pistas"
+msgstr "Ski Track"
+
+#: appSki/Templates/base.html:18 appSki/Templates/base2.html:18
+msgid "Servicios"
+msgstr "Services"
+
+#: appSki/Templates/base.html:19 appSki/Templates/base2.html:19
+#: appSki/Templates/formulario.html:4
+msgid "Formulario"
+msgstr "Form"
+
+#: appSki/Templates/estacion.html:4
+msgid "Detalles de la estacion"
+msgstr "Ski resort details"
+
+#: appSki/Templates/estacion.html:11
+msgid "Datos de la estacion"
+msgstr "Ski resort data"
+
+#: appSki/Templates/estacion.html:19
+msgid "Superficie(km):"
+msgstr "Area(km):"
+
+#: appSki/Templates/estacion.html:22
+msgid "Precio por dia:"
+msgstr "Price per day:"
+
+#: appSki/Templates/estacion.html:25 appSki/Templates/estacion.html:71
+msgid "Horario de apertura:"
+msgstr "Opening hours:"
+
+#: appSki/Templates/estacion.html:28 appSki/Templates/estacion.html:74
+msgid "Horario de cierre:"
+msgstr ""
+
+#: appSki/Templates/estacion.html:31
+msgid "Telefono:"
+msgstr "Closing hours:"
+
+#: appSki/Templates/estacion.html:34 appSki/Templates/pista.html:24
+msgid "Estado:"
+msgstr "State:"
+
+#: appSki/Templates/estacion.html:37
+msgid "Localidad:"
+msgstr "Location"
+
+#: appSki/Templates/estacion.html:41
+msgid "Lista de pistas"
+msgstr "List of tracks"
+
+#: appSki/Templates/estacion.html:51
+msgid "No tiene pistas asociadas."
+msgstr "No associated tracks."
+
+#: appSki/Templates/estacion.html:56
+msgid "Lista de servicios"
+msgstr "List of services"
+
+#: appSki/Templates/estacion.html:65
+msgid "Coste:"
+msgstr "Cost:"
+
+#: appSki/Templates/estacion.html:68
+msgid "Reserva:"
+msgstr "Reserve:"
+
+#: appSki/Templates/estacion.html:78
+msgid "No existe ningun servicio."
+msgstr "There is no service."
+
+#: appSki/Templates/estacion.html:85
+msgid "No tiene servicios asociados."
+msgstr "No associated services."
+
+#: appSki/Templates/estacion.html:89
+msgid "No existe esta estacion."
+msgstr "This station does not exist."
+
+#: appSki/Templates/estaciones.html:24
+#: appSki/Templates/estaciones_todas.html:16
+msgid "No hay estaciones creadas."
+msgstr "There are no stations created."
+
+#: appSki/Templates/estaciones_todas.html:4
+msgid "Todas las estaciones"
+msgstr "All ski resorts"
+
+#: appSki/Templates/estaciones_todas.html:7
+msgid "Listado de todas las estaciones"
+msgstr "List of all ski resorts"
+
+#: appSki/Templates/formulario.html:9
+msgid "Viajes para esquiar en grupo"
+msgstr "Group ski trips"
+
+#: appSki/Templates/formulario.html:25
+msgid "+25 personas"
+msgstr "+25 people"
+
+#: appSki/Templates/formulario.html:29
+msgid "Empresas"
+msgstr "Companies"
+
+#: appSki/Templates/formulario.html:33
+msgid "Escolares"
+msgstr "Schoolchildren"
+
+#: appSki/Templates/formulario.html:46
+msgid "Enviar"
+msgstr "Send"
+
+#: appSki/Templates/index.html:4
+msgid "Portada"
+msgstr "cover page"
+
+#: appSki/Templates/localidades.html:4 appSki/Templates/pista.html:4
+#: appSki/Templates/servicio.html:4
+msgid "Listado de localidades"
+msgstr "List of locations"
+
+#: appSki/Templates/localidades.html:27
+msgid "No hay localidades creadas."
+msgstr "There are no locations created."
+
+#: appSki/Templates/pista.html:12
+msgid "Datos de la pista"
+msgstr "Track data"
+
+#: appSki/Templates/pista.html:18
+msgid "Nombre:"
+msgstr "Name:"
+
+#: appSki/Templates/pista.html:21
+msgid "Color:"
+msgstr "Color:"
+
+#: appSki/Templates/pista.html:28
+msgid "No existe esta pista."
+msgstr "This track does not exist."
+
+#: appSki/Templates/pistas_todas.html:4 appSki/Templates/servicios_todos.html:4
+msgid "Todas las pistas"
+msgstr "All tracks"
+
+#: appSki/Templates/pistas_todas.html:7
+msgid "Listado de todas las pistas"
+msgstr "List of all tracks"
+
+#: appSki/Templates/pistas_todas.html:16
+msgid "No hay pistas creadas."
+msgstr "There are no tracks created."
+
+#: appSki/Templates/servicio.html:10
+msgid "Datos del servicio"
+msgstr "Service data"
+
+#: appSki/Templates/servicio.html:21
+msgid "Lista de estaciones con ese servicio"
+msgstr "List of ski resorts with this service"
+
+#: appSki/Templates/servicio.html:32
+msgid "No tiene estaciones asociados."
+msgstr "There are no associated ski resorts."
+
+#: appSki/Templates/servicio.html:38
+msgid "No existe este servicio."
+msgstr "This service does not exist."
+
+#: appSki/Templates/servicios_todos.html:7
+msgid "Listado de todos los servicios"
+msgstr "List of all services"
+
+#: appSki/Templates/servicios_todos.html:16
+msgid "No hay servicios creados."
+msgstr "No services have been created."
+
+#: appSki/forms.py:7
+msgid "Nombre"
+msgstr "Name"
+
+#: appSki/forms.py:8
+msgid "Apellidos"
+msgstr "Last name"
+
+#: appSki/forms.py:9
+msgid "Telefono"
+msgstr "Phone number"
+
+#: appSki/forms.py:10
+msgid "Edad"
+msgstr "Age"
+
+#: appSki/forms.py:11
+msgid "Direccion"
+msgstr "Address"
+
+#: appSki/forms.py:12
+msgid "Email"
+msgstr "Email"
+
+#: appSki/forms.py:20
+msgid "Tipo de viaje"
+msgstr "Type of trip"
+

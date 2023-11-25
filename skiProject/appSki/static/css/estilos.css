@@ -1,17 +1,17 @@
 /* general  */
                                      
-/* datos para probar solo*/
 body{    
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
     background-color: rgb(237, 232, 232);
     margin: 0 auto;
-    margin-top: 65px;
     padding: 10px;
     max-width: 100%; 
     min-height: 65vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 90px;
+
 }
 
 
@@ -24,9 +24,7 @@ nav.boton{
     float: right;
 }
 
-
 .imgIndex {
-
     display: flex;
     flex-direction: column;
     float: left;
@@ -91,20 +89,20 @@ nav ul li{
 }
 
 /*Estilos para los hipervinculos*/
-a:link, a:visited{
+.link1 a:link,
+.link1 a:visited {
     color: rgb(46, 56, 122);
 }
 
-a:hover{
-    color: #dea623;
+.link1 a:hover{
+    /* color de las palabras cuando se pasa por encima*/
+    color: #d2d1cf;  
 }
 
 
 .imagen{
     flex-direction: row;
-    text-align: center;
-
-    
+    text-align: center;  
 }
 
 .imagen img{
@@ -176,3 +174,5 @@ a:hover{
     width: 350px; /* Ancho máximo del contenedor padre */
     height: 250px; /* Altura máxima del contenedor padre */
 }
+
+

@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from django.utils.translation import gettext_lazy as _
+
+
 
 urlpatterns = [
 path('', views.PortadaListView.as_view(), name='index'),
@@ -12,4 +15,5 @@ path('estaciones/<int:pk>', views.EstacionDetailView.as_view(), name='estacion')
 path('pistas/<int:pk>', views.PistaDetailView.as_view(), name='pista'),
 path('servicios/<int:pk>', views.ServicioDetailView.as_view(), name='servicio'),
 path('show_formulario/', views.FormularioView.as_view(), name='show_formulario'),
+path('set-language/<str:language>/', views.set_language, name='set_language'),
 ]

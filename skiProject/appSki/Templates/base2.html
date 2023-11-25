@@ -4,13 +4,13 @@
 <!--<html lang = "{% trans 'en' %}"-->
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        <link rel="stylesheet" href="{% static 'css/estilosformulario.css' %}">
         <title>{% block titulo %}AppSki{% endblock %}</title>
     </head>
     <body>
         <div id="content">
             <nav>
-                <ul class="link1">
+                <ul class="link2">
                     <li><a href="{% url 'index' %}">{% trans 'Inicio' %}</a></li>
                     <li><a href="{% url 'localidades' %}">{% trans 'Localidades' %}</a></li>
                     <li><a href="{% url 'estaciones_todas' %}">{% trans 'Estaciones' %}</a></li>
@@ -19,22 +19,13 @@
                     <li><a href="{% url 'show_formulario' %}">{% trans 'Formulario' %}</a></li>
                 </ul>
             </nav>
-                        <!-- Ejemplo de menú desplegable para cambiar el idioma -->
-
-            <form action="{% url 'set_language' %}" method="post" id="language-form">
-                {% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}">
-                <select name="language" id="language-select" onchange="this.form.submit()">
-                    {% get_current_language as current_language %}
-                    {% get_available_languages as available_languages %}
-                    {% for lang_code, lang_name in available_languages %}
-                        <option value="{{ lang_code }}" {% if lang_code == current_language %}selected{% endif %}>
-                            {{ lang_name }}
-                        </option>
-                    {% endfor %}
-                </select>
+            <form action="{% url 'change_language' 'en' %}" method="post">{% csrf_token %}
+                <button type="submit">English</button>
             </form>
-
+    
+            <form action="{% url 'change_language' 'es' %}" method="post">{% csrf_token %}
+                <button type="submit">Español</button>
+            </form>
 	     <h1>AppSki</h1>
             {% block contenido %}{% endblock %}
         </div>

@@ -1,25 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
-{% block titulo %}Detalles de la estacion{% endblock %}
+{% load i18n %}
+{% block titulo %}{% trans 'Detalles de la estacion' %}{% endblock %}
 
 {% block contenido %}
-<header>
-    <!-- 
-    <nav>
-        <ul class="link">
-            <li><a href="#datos">Datos de la estacion</a></li>
-            <li><a href="#pistas">Pistas</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="{% url 'index' %}">Inicio</a></li>
-        </ul>
-    </nav>
-    -->
-</header>
 
 {% if estacion %}
 
-    <h2>{{ estacion.nombre}}</h2>
-    <h3 id="datos">Datos de la estacion</h3>
+    <h2>{% trans estacion.nombre %}</h2>
+    <h3 id="datos">{% trans 'Datos de la estacion' %}</h3>
     <div class="imagen">
         {% with "images/"|add:estacion.nombre|add:".jpg" as imagen %}
             <img src="{% static imagen %}" alt="">
@@ -27,76 +16,76 @@
     </div>
     <ul>
         <li>
-            Superficie(km): {{ estacion.superficie}}
+            {% trans 'Superficie(km):' %} {{estacion.superficie}}
         </li>
         <li>
-            Precio por dia: {{ estacion.precio_dia}}
+            {% trans 'Precio por dia:' %} {{estacion.precio_dia}}
         </li>
         <li>
-            Horario de apertura: {{ estacion.horario_ini}}
+            {% trans 'Horario de apertura:' %} {{estacion.horario_ini}}
         </li>
         <li>
-            Horario de cierre: {{ estacion.horario_fin}}
+            {% trans 'Horario de cierre:' %}' {{estacion.horario_fin}}
         </li>
         <li>
-            Telefono: {{ estacion.telefono}}
+            {% trans 'Telefono:' %} {{estacion.telefono}}
         </li>
         <li>
-            Estado: {{ estacion.estado}}
+            {% trans 'Estado:' %} {% trans estacion.estado %}
         </li>
         <li>
-            Localidad: <a href="{% url 'estaciones' pk=estacion.localidad.id %}">{{ estacion.localidad}}</a>
+            {% trans 'Localidad:' %} <a href="{% url 'estaciones' pk=estacion.localidad.id %}">{% trans estacion.localidad.nombre %}</a>
         </li>
     </ul>
     
-    <h3 id="pistas">Lista de pistas</h3>
+    <h3 id="pistas">{% trans 'Lista de pistas' %}</h3>
     {% if pistas %}
         <ol>
             {% for p in pistas %}
                 <li>
-                    <a href="{% url 'pista' pk=p.id %}">{{ p.nombre}}</a>
+                    <a href="{% url 'pista' pk=p.id %}">{% trans p.nombre %}</a>
                 </li>
             {% endfor %}
         </ol>
     {% else %}
-        <p>No tiene pistas asociadas.</p>
+        <p>{% trans 'No tiene pistas asociadas.' %}</p>
     {% endif %}
 
     
 
-    <h3 id="servicios">Lista de servicios</h3>
+    <h3 id="servicios">{% trans 'Lista de servicios' %}</h3>
     {% if servicios %}
         <ol>
             {% for s in servicios %}
                 <li>
-                    <a href="{% url 'servicio' pk=s.servicio.id %}">{{ s.servicio.nombre}}</a>
+                    <a href="{% url 'servicio' pk=s.servicio.id %}">{% trans s.servicio.nombre %}</a>
                     {% if s %}
                         <ul>
                             <li>
-                                Coste: {{ s.costo }}
+                                {% trans 'Coste:' %} {{s.costo}}
                             </li>
                             <li>
-                                Reserva: {{ s.reserva }}
+                                {% trans 'Reserva:' %} {{s.reserva}}
                             </li>
                             <li>
-                                Horario de apertura: {{ s.horario_ini }}
+                                {% trans 'Horario de apertura:' %} {{ s.horario_ini }}
                             </li>
                             <li>
-                                Horario de cierre: {{ s.horario_fin }}
+                                {% trans 'Horario de cierre:' %} {{ s.horario_fin }}
                             </li>
                         </ul>
                     {% else %}
-                        <p>No existe ningun servicio.</p>
+                        <p>{% trans 'No existe ningun servicio.' %}</p>
                     {% endif %}
                     
                 </li>
             {% endfor %}
         </ol>
     {% else %}
-        <p>No tiene servicios asociados.</p>
+        <p>{% trans 'No tiene servicios asociados.' %}</p>
     {% endif %}
     
 {% else %}
-    <p>No existe esta estacion.</p>
+    <p>{% trans 'No existe esta estacion.' %}</p>
 {% endif %}
 {% endblock %}

@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
-{% block titulo %}Todas las pistas{% endblock %}
+{% load i18n %}
+{% block titulo %}{% trans 'Todas las pistas' %}{% endblock %}
 
 {% block contenido %}
-    <h2>Listado de todas las pistas</h2>
+    <h2>{% trans 'Listado de todas las pistas' %}</h2>
     {% if todas_las_pistas %}
         {% for p in todas_las_pistas %}
         <ul>
-            {{ p.nombre}}
+            {% trans p.nombre %}
         </ul>
             
         {% endfor %}
     {% else %}
-        <p>No hay pistas creadas.</p>
+        <p>{% trans 'No hay pistas creadas.' %}</p>
     {% endif %}
 {% endblock %}

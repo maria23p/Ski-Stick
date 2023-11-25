@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
-{% block titulo %}Todas las estaciones{% endblock %}
+{% load i18n %}
+{% block titulo %}{% trans 'Todas las estaciones' %}{% endblock %}
 
 {% block contenido %}
-    <h2>Listado de todas las estaciones</h2>
+    <h2>{% trans 'Listado de todas las estaciones' %}</h2>
     {% if todas_las_estaciones %}
         {% for e in todas_las_estaciones %}
         <ul>
@@ -12,6 +13,6 @@
             
         {% endfor %}
     {% else %}
-        <p>No hay estaciones creadas.</p>
+        <p>{% trans 'No hay estaciones creadas.' %}</p>
     {% endif %}
 {% endblock %}

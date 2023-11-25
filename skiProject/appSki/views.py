@@ -1,10 +1,14 @@
 from typing import Any
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.shortcuts import render, redirect
 from .models import Localidad, Estacion, Pista, Servicio, EstacionServicio
 from .forms import MiFormulario 
 from django.views.generic import DetailView, ListView, View
+from django.utils import translation
+from django.conf import settings
+
+
 
 # Portada.
 class PortadaListView(ListView):
@@ -108,3 +112,35 @@ class FormularioView(View):
             return redirect('index')
         
         return render(request, self.template_name, {'formulario': formulario})
+
+# vista para cambiar el idioma
+from django.utils.translation import activate
+from django.urls import reverse
+from django.http import HttpResponseRedirect
+
+def set_languageee(request, language):
+    # Lista de idiomas permitidos en tu proyecto
+    LANGUAGES = ['en', 'es']  # Por ejemplo, inglés y español
+
+    # Verifica si el idioma seleccionado es válido
+    if language in LANGUAGES:
+        # Activa el idioma seleccionado
+        activate(language)
+        # Guarda el idioma en la sesión del usuario (esto usa el LocaleMiddleware)
+        request.session['django_language'] = language
+
+    # Redirige a la página desde donde se hizo el cambio de idioma
+    return HttpResponseRedirect(reverse('get_queryset'))
+
+from django.conf import settings
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.utils import translation
+
+def set_language(request):
+    if request.method == 'POST':
+        language_code = request.POST.get('language')
+        if language_code:
+            translation.activate(language_code)
+            request.session[translation.LANGUAGE_SESSION_KEY] = language_code
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

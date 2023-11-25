@@ -2,20 +2,21 @@ body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
     background-color: rgb(237, 232, 232);
     margin: 0 auto;
-    margin-top: 65px;
     padding: 10px;
     max-width: 100%; 
     min-height: 65vh;
+    margin-top: 100px;
 } 
 
 .container {
-    width: 85%; /* anchura de todo */
+    width: 75%; 
     margin: 0 auto;
-    padding: 40px;
 }
 
 h1 {
+    /* para el titulo de AppSki y 'Viajes para esquiar en grupo'*/
     text-align: center;
+    margin-bottom: 0px;
 }
 
 p {
@@ -24,6 +25,7 @@ p {
 
 .form-group {
     margin-bottom: 20px;
+    font-size: 17px;
 }
 
 label {
@@ -31,17 +33,28 @@ label {
     font-weight: bold;
 }
 
+/* para que todos los campos de relleno por el usuario tengan las mismas medidas*/
 input[type="text"],
-input[type="email"] {
-    /* width: calc(100% - 10px); */
-    max-width: 300px; 
+input[type="email"],
+input[type="number"] {
+    width: 300px; 
+    height: 40px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
     margin-top: 5px;
 }
-
+/* el de ChoiceField no se hace igual que los demás(los de arriba)*/
+select{
+    width: 300px; 
+    height: 40px; 
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
 button[type="submit"] {
     padding: 10px 20px;
     border: none;
@@ -49,4 +62,51 @@ button[type="submit"] {
     background-color: #007bff;
     color: white;
     cursor: pointer;
+    font-size: 15px;
+}
+
+.link2 {
+    background-color: rgb(223, 216, 216);
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 605px; 
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px; 
+    
+}
+
+.link2 a {
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(46, 56, 122);
+}
+
+.link2 a:hover {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(108, 111, 130);
+}
+
+/*Estilos para los hipervínculos*/
+.link2 a:link,
+.link2 a:visited {
+    color: rgb(46, 56, 122);
+}
+
+.link2 a:hover {
+    /* color de las palabras cuando se pasa por encima*/
+    color: #d2d1cf;    
 }

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-{% block titulo %}Listado de localidades{% endblock %}
+{% load i18n %}
+{% block titulo %}{% trans 'Listado de localidades' %}{% endblock %}
 
 {% block contenido %}
 <!-- volver al principio-->
@@ -8,27 +9,22 @@
     <img id = "color" src="{% static 'images/colores.png' %}" alt="">
     <img id = "pista" src="{% static 'images/pista.jpg' %}" alt="">
 </div>
-<h2>Datos de la pista</h2>
+<h2>{% trans 'Datos de la pista' %}</h2>
 
 
 {% if pista %}
     <ul>
         <li>
-            Nombre: {{ pista.nombre}}
+            {% trans 'Nombre:' %} {% trans pista.nombre %}
         </li>
         <li>
-            Color: {{ pista.color}}
+            {% trans 'Color:' %} {% trans pista.color %}
         </li>
         <li>
-            Estado: {{ pista.estado}}
+            {% trans 'Estado:' %} {% trans pista.estado %}
         </li>
     </ul>
 {% else %}
-    <p>No existe esta pista.</p>
+    <p>{% trans 'No existe esta pista.' %}</p>
 {% endif %}
-
-
-
-
-
 {% endblock %}
