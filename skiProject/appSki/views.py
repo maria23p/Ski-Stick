@@ -48,9 +48,9 @@ class LocalidadesListView(ListView):
 #devuelve listado de estaciones
 class EstacionesListView(ListView):
     model = Estacion
-    template_name = 'estaciones_todas.html'
+    template_name = 'estaciones.html'
     queryset = Estacion.objects.order_by('nombre')
-    context_object_name = 'todas_las_estaciones'
+    context_object_name = 'estaciones'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

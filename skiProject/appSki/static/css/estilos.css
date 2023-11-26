@@ -91,15 +91,10 @@ nav ul li{
 }
 
 /*Estilos para los hipervinculos*/
-.link1 a:link,
-.link1 a:visited {
+ a:link, a:visited {
     color: rgb(46, 56, 122);
 }
 
-.link1 a:hover{
-    /* color de las palabras cuando se pasa por encima*/
-    color: #d2d1cf;  
-}
 
 
 .imagen{
