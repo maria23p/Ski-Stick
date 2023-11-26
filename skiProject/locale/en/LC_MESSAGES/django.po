@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-25 21:17+0000\n"
+"POT-Creation-Date: 2023-11-26 00:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: appSki/Templates/base.html:4 appSki/Templates/base2.html:4
 msgid "en"
 msgstr ""
@@ -241,3 +242,10 @@ msgstr "Email"
 msgid "Tipo de viaje"
 msgstr "Type of trip"
 
+#: skiProject/settings.py:115
+msgid "Spanish"
+msgstr ""
+
+#: skiProject/settings.py:116
+msgid "English"
+msgstr ""

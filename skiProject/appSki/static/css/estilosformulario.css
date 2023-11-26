@@ -110,3 +110,8 @@ nav ul li {
     /* color de las palabras cuando se pasa por encima*/
     color: #d2d1cf;    
 }
+/* para dejar espacio entre la barra y los campos para el cambio de idioma*/
+#idioma{
+    padding: 20px;
+ }
+ 

@@ -16,8 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import set_language
 
 urlpatterns = [
+    # Otras URLs de tu proyecto
     path('', include('appSki.urls')),
     path('admin/', admin.site.urls),
+
+    path('set_language/', set_language, name='set_language'),
+
 ]

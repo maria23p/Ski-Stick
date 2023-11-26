@@ -7,7 +7,7 @@ from .forms import MiFormulario
 from django.views.generic import DetailView, ListView, View
 from django.utils import translation
 from django.conf import settings
-
+from django.utils.translation import gettext_lazy as _
 
 
 # Portada.
@@ -20,6 +20,14 @@ class PortadaListView(ListView):
         raw_query = 'SELECT * FROM (SELECT * FROM appSki_Estacion ORDER BY Superficie DESC) AS ranked_stations GROUP BY localidad_id'
         queryset = Estacion.objects.raw(raw_query)
         return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context
      
 
 #devuelve el listado de localidades
@@ -28,6 +36,14 @@ class LocalidadesListView(ListView):
     template_name = 'localidades.html'
     queryset = Localidad.objects.order_by('nombre')
     context_object_name = 'lista_localidades'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context
 
 #devuelve listado de estaciones
 class EstacionesListView(ListView):
@@ -35,6 +51,14 @@ class EstacionesListView(ListView):
     template_name = 'estaciones_todas.html'
     queryset = Estacion.objects.order_by('nombre')
     context_object_name = 'todas_las_estaciones'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context
 
 #devuelve listado de pistas
 class PistasListView(ListView):
@@ -42,6 +66,14 @@ class PistasListView(ListView):
     template_name = 'pistas_todas.html'
     queryset = Pista.objects.order_by('nombre')
     context_object_name = 'todas_las_pistas'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context
 
 #devuelve listado de servicios
 class ServiciosListView(ListView):
@@ -49,6 +81,14 @@ class ServiciosListView(ListView):
     template_name = 'servicios_todos.html'
     queryset = Servicio.objects.order_by('nombre')
     context_object_name = 'servicios_unicos'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context
 
 #devuelve las estaciones de cada localidad
 class EstacionesLocalidadListView(ListView):
@@ -63,6 +103,13 @@ class EstacionesLocalidadListView(ListView):
         context['estaciones'] = estaciones
         return context
 
+    def get_context_data2(self, **kwargs):
+        context = super().get_context_data2(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context
     
 
 #devuelve los datos de una estacion
@@ -77,6 +124,14 @@ class EstacionDetailView(DetailView):
         context = super(EstacionDetailView, self).get_context_data(**kwargs)
         context['pistas'] = pistas
         context['servicios'] = servicios
+        return context
+    
+    def get_context_data2(self, **kwargs):
+        context = super().get_context_data2(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
         return context
 
 
@@ -96,7 +151,16 @@ class ServicioDetailView(DetailView):
         context['estaciones'] = Estacion.objects.filter(servicios=self.object)
         return context
 
+    def get_context_data2(self, **kwargs):
+        context = super().get_context_data2(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context
+
 #formulario
+# preguntar moni si esto tmb ha hehco apartado 2
 class FormularioView(View):
     template_name = 'formulario.html'
 
@@ -113,34 +177,29 @@ class FormularioView(View):
         
         return render(request, self.template_name, {'formulario': formulario})
 
-# vista para cambiar el idioma
-from django.utils.translation import activate
-from django.urls import reverse
-from django.http import HttpResponseRedirect
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context
 
-def set_languageee(request, language):
-    # Lista de idiomas permitidos en tu proyecto
-    LANGUAGES = ['en', 'es']  # Por ejemplo, inglés y español
 
-    # Verifica si el idioma seleccionado es válido
-    if language in LANGUAGES:
-        # Activa el idioma seleccionado
-        activate(language)
-        # Guarda el idioma en la sesión del usuario (esto usa el LocaleMiddleware)
-        request.session['django_language'] = language
+#En este ejemplo, la vista FormularioView es una subclase de TemplateView,
+# que es una vista basada en clases. 
+# y encima puedo hacer lo de los idiomas.
+from django.views.generic import TemplateView
+from django.utils.translation import gettext_lazy as _
 
-    # Redirige a la página desde donde se hizo el cambio de idioma
-    return HttpResponseRedirect(reverse('get_queryset'))
+class FormularioView(TemplateView):
+    template_name = 'formulario.html'
 
-from django.conf import settings
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.utils import translation
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context
 
-def set_language(request):
-    if request.method == 'POST':
-        language_code = request.POST.get('language')
-        if language_code:
-            translation.activate(language_code)
-            request.session[translation.LANGUAGE_SESSION_KEY] = language_code
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
