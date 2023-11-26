@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 00:22+0100\n"
+"POT-Creation-Date: 2023-11-26 13:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appSki/Templates/base.html:4 appSki/Templates/base2.html:4
-msgid "en"
-msgstr ""
+#: appSki/Templates/base.html:26
+msgid "Cambiar idioma"
+msgstr "Change language"
 
-#: appSki/Templates/base.html:14 appSki/Templates/base2.html:14
+#: appSki/Templates/base.html:31 appSki/Templates/base2.html:30
 msgid "Inicio"
 msgstr "Home"
 
-#: appSki/Templates/base.html:15 appSki/Templates/base2.html:15
+#: appSki/Templates/base.html:32 appSki/Templates/base2.html:31
 msgid "Localidades"
 msgstr "Locations"
 
-#: appSki/Templates/base.html:16 appSki/Templates/base2.html:16
+#: appSki/Templates/base.html:33 appSki/Templates/base2.html:32
 #: appSki/Templates/estaciones.html:7
 msgid "Estaciones"
 msgstr "Ski Resorts"
 
-#: appSki/Templates/base.html:17 appSki/Templates/base2.html:17
+#: appSki/Templates/base.html:34 appSki/Templates/base2.html:33
 msgid "Pistas"
 msgstr "Ski Track"
 
-#: appSki/Templates/base.html:18 appSki/Templates/base2.html:18
+#: appSki/Templates/base.html:35 appSki/Templates/base2.html:34
 msgid "Servicios"
 msgstr "Services"
 
-#: appSki/Templates/base.html:19 appSki/Templates/base2.html:19
+#: appSki/Templates/base.html:36 appSki/Templates/base2.html:35
 #: appSki/Templates/formulario.html:4
 msgid "Formulario"
 msgstr "Form"
@@ -70,11 +70,11 @@ msgstr "Opening hours:"
 
 #: appSki/Templates/estacion.html:28 appSki/Templates/estacion.html:74
 msgid "Horario de cierre:"
-msgstr ""
-
-#: appSki/Templates/estacion.html:31
-msgid "Telefono:"
 msgstr "Closing hours:"
+
+#: appSki/Templates/estacion.html:31 appSki/forms.py:9
+msgid "Telefono:"
+msgstr "Phone number:"
 
 #: appSki/Templates/estacion.html:34 appSki/Templates/pista.html:24
 msgid "Estado:"
@@ -166,7 +166,7 @@ msgstr "There are no locations created."
 msgid "Datos de la pista"
 msgstr "Track data"
 
-#: appSki/Templates/pista.html:18
+#: appSki/Templates/pista.html:18 appSki/forms.py:7
 msgid "Nombre:"
 msgstr "Name:"
 
@@ -214,38 +214,58 @@ msgstr "List of all services"
 msgid "No hay servicios creados."
 msgstr "No services have been created."
 
-#: appSki/forms.py:7
-msgid "Nombre"
-msgstr "Name"
-
 #: appSki/forms.py:8
-msgid "Apellidos"
-msgstr "Last name"
-
-#: appSki/forms.py:9
-msgid "Telefono"
-msgstr "Phone number"
+msgid "Apellidos:"
+msgstr "Last name:"
 
 #: appSki/forms.py:10
-msgid "Edad"
-msgstr "Age"
+msgid "Edad:"
+msgstr "Age:"
 
 #: appSki/forms.py:11
-msgid "Direccion"
-msgstr "Address"
+msgid "Direccion:"
+msgstr "Address:"
 
 #: appSki/forms.py:12
-msgid "Email"
-msgstr "Email"
+msgid "Email:"
+msgstr "Email:"
 
-#: appSki/forms.py:20
-msgid "Tipo de viaje"
-msgstr "Type of trip"
+#: appSki/forms.py:15
+msgid "Colegio"
+msgstr "School"
 
-#: skiProject/settings.py:115
+#: appSki/forms.py:16
+msgid "Universidad"
+msgstr "University"
+
+#: appSki/forms.py:17
+msgid "Empresa"
+msgstr "Companies"
+
+#: appSki/forms.py:18
+msgid "Grupo de amigos"
+msgstr "Group of friends"
+
+#: appSki/forms.py:21
+msgid "Tipo de viaje:"
+msgstr "Type of trip:"
+
+#: appSki/models.py:36
+#, fuzzy
+#| msgid "Nombre:"
+msgid "Nombre"
+msgstr "Name:"
+
+#: appSki/views.py:27 appSki/views.py:43 appSki/views.py:58 appSki/views.py:73
+#: appSki/views.py:88 appSki/views.py:109 appSki/views.py:138
+#: appSki/views.py:153 appSki/views.py:171 appSki/views.py:184
+#: appSki/views.py:197 skiProject/settings.py:115
 msgid "Spanish"
 msgstr ""
 
-#: skiProject/settings.py:116
+#: appSki/views.py:28 appSki/views.py:44 appSki/views.py:59 appSki/views.py:74
+#: appSki/views.py:89 appSki/views.py:110 appSki/views.py:139
+#: appSki/views.py:154 appSki/views.py:172 appSki/views.py:185
+#: appSki/views.py:198 skiProject/settings.py:116
 msgid "English"
 msgstr ""

@@ -1,5 +1,7 @@
 from django.db import models
- 
+# para la traduccion por ejemplo de los servicios
+from django.utils.translation import gettext_lazy as _
+
 class Localidad(models.Model):
     # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
     nombre = models.CharField(max_length=50)
@@ -8,14 +10,30 @@ class Localidad(models.Model):
         return self.nombre
 
 class Pista(models.Model):
-    nombre = models.CharField(max_length=50)
-    color = models.CharField(max_length=50)
-    estado = models.CharField(max_length = 50)
+    nombre = models.CharField('Nombre', max_length=50)
+    color = models.CharField('Color', max_length=50)
+    estado = models.CharField('Estado',max_length = 50)
+    
     def __str__(self):
         return self.nombre
+   #  def color_en_idioma(self, idioma):
+    #    if idioma == 'es':
+     #       return _(self.color)  # Traducción al español
+     #   elif idioma == 'en':
+            # Traducción al inglés
+    #        if self.color.lower() == 'roja':
+     #           return 'red'
+            # Agrega más traducciones según sea necesario para otros colores en inglés
+      #      else:
+       #         return self.color
+        #else:
+         #   return self.color  """
+       
+    
+   
 
 class Servicio(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(_('Nombre'), max_length=50)
     def __str__(self):
         return self.nombre
 

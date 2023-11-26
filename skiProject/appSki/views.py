@@ -95,16 +95,16 @@ class EstacionesLocalidadListView(ListView):
     model = Localidad
     template_name = 'estaciones.html'
     context_object_name = 'estaciones'
+    
     def get_context_data(self, **kwargs):
         localidad = get_object_or_404(Localidad, pk=self.kwargs['pk'])
         estaciones =  localidad.estacion_set.all()
-        context = super(EstacionesLocalidadListView, self).get_context_data(**kwargs)
+        #context = super(EstacionesLocalidadListView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['localidad'] = localidad
         context['estaciones'] = estaciones
-        return context
+        #return context
 
-    def get_context_data2(self, **kwargs):
-        context = super().get_context_data2(**kwargs)
         context['LANGUAGES'] = [
             ('es', _('Spanish')),
             ('en', _('English')),
@@ -118,16 +118,22 @@ class EstacionDetailView(DetailView):
     template_name = 'estacion.html'
 
     def get_context_data(self, **kwargs):
+        #estacion = get_object_or_404(Estacion, pk=self.kwargs['pk'])
+        #pistas =  estacion.pistas.all()
+        #servicios = EstacionServicio.objects.filter(estacion = estacion)
+        #context = super(EstacionDetailView, self).get_context_data(**kwargs)
+        #context['pistas'] = pistas
+        #context['servicios'] = servicios
+        #return context
+    
+        context = super().get_context_data(**kwargs)
         estacion = get_object_or_404(Estacion, pk=self.kwargs['pk'])
         pistas =  estacion.pistas.all()
         servicios = EstacionServicio.objects.filter(estacion = estacion)
-        context = super(EstacionDetailView, self).get_context_data(**kwargs)
+        
         context['pistas'] = pistas
         context['servicios'] = servicios
-        return context
-    
-    def get_context_data2(self, **kwargs):
-        context = super().get_context_data2(**kwargs)
+        
         context['LANGUAGES'] = [
             ('es', _('Spanish')),
             ('en', _('English')),
@@ -140,19 +146,27 @@ class EstacionDetailView(DetailView):
 class PistaDetailView(DetailView):
     model = Pista
     template_name = 'pista.html'
-
+    
+    def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context['LANGUAGES'] = [
+                ('es', _('Spanish')),
+                ('en', _('English')),
+            ]
+            return context
+        
 #devuelve los detalles de un servicio
 class ServicioDetailView(DetailView):
     model = Servicio
     template_name = 'servicio.html'
 
     def get_context_data(self, **kwargs):
-        context = super(ServicioDetailView,self).get_context_data(**kwargs)
-        context['estaciones'] = Estacion.objects.filter(servicios=self.object)
-        return context
+        #context = super(ServicioDetailView,self).get_context_data(**kwargs)
+        #context['estaciones'] = Estacion.objects.filter(servicios=self.object)
+        #return context
 
-    def get_context_data2(self, **kwargs):
-        context = super().get_context_data2(**kwargs)
+        context = super().get_context_data(**kwargs)
+        context['estaciones'] = Estacion.objects.filter(servicios=self.object)
         context['LANGUAGES'] = [
             ('es', _('Spanish')),
             ('en', _('English')),
@@ -160,13 +174,17 @@ class ServicioDetailView(DetailView):
         return context
 
 #formulario
-# preguntar moni si esto tmb ha hehco apartado 2
 class FormularioView(View):
     template_name = 'formulario.html'
 
     def get(self, request, *args, **kwargs):
         formulario = MiFormulario()
-        return render(request, self.template_name, {'formulario': formulario})
+        context = {'formulario':formulario}
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
         formulario = MiFormulario(request.POST)
@@ -174,32 +192,16 @@ class FormularioView(View):
             datos_formulario = formulario.cleaned_data
             # Realizar acciones con estos datos, como guardarlos en la BD, enviar un correo, etc. MIRAR ESTO!
             return redirect('index')
+        context = {'formulario':formulario}
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
         
-        return render(request, self.template_name, {'formulario': formulario})
+        return render(request, self.template_name, context)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['LANGUAGES'] = [
-            ('es', _('Spanish')),
-            ('en', _('English')),
-        ]
-        return context
+ 
 
 
-#En este ejemplo, la vista FormularioView es una subclase de TemplateView,
-# que es una vista basada en clases. 
-# y encima puedo hacer lo de los idiomas.
-from django.views.generic import TemplateView
-from django.utils.translation import gettext_lazy as _
 
-class FormularioView(TemplateView):
-    template_name = 'formulario.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['LANGUAGES'] = [
-            ('es', _('Spanish')),
-            ('en', _('English')),
-        ]
-        return context
 
