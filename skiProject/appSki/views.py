@@ -179,6 +179,22 @@ class FormularioView(View):
 
     def get(self, request, *args, **kwargs):
         formulario = MiFormulario()
+        
+        formulario.fields['nombre'].label = _('Nombre:')
+        formulario.fields['apellidos'].label = _('Apellidos:')
+        formulario.fields['telefono'].label = _('Telefono:')
+        formulario.fields['edad'].label = _('Edad:')
+        formulario.fields['direccion'].label = _('Direccion:')
+        formulario.fields['email'].label = _('Email:')
+        formulario.fields['tipo_viaje'].label = _('Tipo de viaje:')
+        formulario.fields['tipo_viaje'].choices = [
+            ('default', _('---')),
+            ('colegio', _('Colegio')),
+            ('universidad', _('Universidad')),
+            ('empresa', _('Empresa')),
+            ('grupo_amigos', _('Grupo de amigos')),
+        ]
+         
         context = {'formulario':formulario}
         context['LANGUAGES'] = [
             ('es', _('Spanish')),

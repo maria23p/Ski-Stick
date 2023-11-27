@@ -112,8 +112,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'es' #idioma base
 
 LANGUAGES = [
-    ('es', _('Spanish')),
-    ('en', _('English')),
+    ('es', 'Spanish'),
+    ('en', 'English'),
 ]
 TIME_ZONE = 'UTC'
 

@@ -7,18 +7,17 @@
 {% block contenido %}
 <div class="container">
 <h1>{% trans 'Viajes para esquiar en grupo' %}</h1>
-  <p class="parrafof">
-        {% trans '¿Quieres organizar un viaje inolvidable para esquiar con tu grupo? ¿Eres parte de una empresa,
-        un grupo numeroso o un grupo escolar buscando una escapada a la nieve? En Esquiades.com te ofrecemos
-        una amplia selección de alojamientos y hoteles especialmente diseñados para grupos. Tenemos ofertas
-        adaptadas a empresas, grupos de más de 25 personas y escolares. Además de forfaits, alojamiento, material
-        de esquí y comidas en pista, también podemos organizar otros servicios según vuestras necesidades.'%}
-    </p>
-    <p class="parrafof">
-        {% trans 'Con años de experiencia y clientes satisfechos, hemos ofrecido los mejores precios y un trato personalizado
-        para viajes de esquí en grupo. Si estás interesado en obtener más información y un presupuesto personalizado,
-        completa el siguiente formulario y uno de nuestros agentes especializados en viajes de esquí para grupos
-        se pondrá en contacto contigo.'%}
+
+    <p class="parrafof">{% trans '¿Quieres organizar un viaje inolvidable para esquiar con tu grupo?' %}
+        {% trans '¿Eres parte de una empresa, un grupo numeroso o un grupo escolar buscando una escapada a la nieve?' %}
+        {% trans 'En Esquiades.com te ofrecemos una amplia selección de alojamientos y hoteles especialmente diseñados para grupos.'%}
+        {% trans 'Tenemos ofertas adaptadas a empresas, grupos de más de 25 personas y escolares.' %}
+        {% trans 'Además de forfaits, alojamiento, material de esquí y comidas en pista, también podemos organizar otros servicios según vuestras necesidades.'%}
+        </p>
+    
+    <p class="parrafof">{% trans 'Con años de experiencia y clientes satisfechos,' %}
+        {% trans 'hemos ofrecido los mejores precios y un trato personalizado para viajes de esquí en grupo.' %}
+        {% trans 'Si estás interesado en obtener más información, completa el siguiente formulario.'%}
     </p>
     <!-- CAMBIAR A JPJ -->
     <div class="foto">
@@ -39,9 +38,8 @@
             {{ formulario.as_p }}
         </div>
         <p>
-            {% trans 'Enviando este formulario entiendes y aceptas de forma expresa
-            la política de privacidad de datos. Este sitio está protegido por
-            reCAPTCHA y las políticas de privacidad de Google y condiciones de uso.'%}
+            {% trans 'Enviando este formulario entiendes y aceptas de forma expresa la política de privacidad de datos.' %}
+            {% trans 'Este sitio está protegido por reCAPTCHA y las políticas de privacidad de Google y condiciones de uso.'%}
         </p>
         <button type="submit">{% trans 'Enviar' %}</button>
     </form>

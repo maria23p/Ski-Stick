@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-26 13:23+0000\n"
+"POT-Creation-Date: 2023-11-27 18:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appSki/Templates/base.html:26
+#: appSki/Templates/base.html:26 appSki/Templates/base2.html:25
 msgid "Cambiar idioma"
 msgstr "Change language"
 
@@ -72,7 +72,7 @@ msgstr "Opening hours:"
 msgid "Horario de cierre:"
 msgstr "Closing hours:"
 
-#: appSki/Templates/estacion.html:31 appSki/forms.py:9
+#: appSki/Templates/estacion.html:31 appSki/forms.py:9 appSki/views.py:185
 msgid "Telefono:"
 msgstr "Phone number:"
 
@@ -133,19 +133,90 @@ msgstr "List of all ski resorts"
 msgid "Viajes para esquiar en grupo"
 msgstr "Group ski trips"
 
-#: appSki/Templates/formulario.html:25
+#: appSki/Templates/formulario.html:11
+msgid "¿Quieres organizar un viaje inolvidable para esquiar con tu grupo?"
+msgstr "Do you want to organize an unforgettable ski trip with your group?"
+
+#: appSki/Templates/formulario.html:12
+msgid ""
+"¿Eres parte de una empresa, un grupo numeroso o un grupo escolar buscando "
+"una escapada a la nieve?"
+msgstr ""
+"Are you part of a company, a large group or a school group lookinf for a "
+"snow getaway?"
+
+#: appSki/Templates/formulario.html:13
+msgid ""
+"En Esquiades.com te ofrecemos una amplia selección de alojamientos y hoteles "
+"especialmente diseñados para grupos."
+msgstr ""
+"At Esquiades.com, we offer you a wide selection of accomodations and hotels "
+"specially designed for groups."
+
+#: appSki/Templates/formulario.html:14
+msgid ""
+"Tenemos ofertas adaptadas a empresas, grupos de más de 25 personas y "
+"escolares."
+msgstr ""
+"We have offers tailored for companies, groups of more than 25 people, and "
+"school groups."
+
+#: appSki/Templates/formulario.html:15
+msgid ""
+"Además de forfaits, alojamiento, material de esquí y comidas en pista, "
+"también podemos organizar otros servicios según vuestras necesidades."
+msgstr ""
+"In addition to ski passes, accomodation, ski equipment, and slope-side "
+"meals, we can also arrange other services according to your needs."
+
+#: appSki/Templates/formulario.html:18
+msgid "Con años de experiencia y clientes satisfechos,"
+msgstr "With years of experience and satisfied customers,"
+
+#: appSki/Templates/formulario.html:19
+msgid ""
+"hemos ofrecido los mejores precios y un trato personalizado para viajes de "
+"esquí en grupo."
+msgstr ""
+"we have offered the best prices and personalized service for group ski trips."
+
+#: appSki/Templates/formulario.html:20
+msgid ""
+"Si estás interesado en obtener más información, completa el siguiente "
+"formulario."
+msgstr ""
+"If you are interested in getting more information, please, complete the "
+"following form."
+
+#: appSki/Templates/formulario.html:24
 msgid "+25 personas"
 msgstr "+25 people"
 
-#: appSki/Templates/formulario.html:29
+#: appSki/Templates/formulario.html:28
 msgid "Empresas"
 msgstr "Companies"
 
-#: appSki/Templates/formulario.html:33
+#: appSki/Templates/formulario.html:32
 msgid "Escolares"
 msgstr "Schoolchildren"
 
-#: appSki/Templates/formulario.html:46
+#: appSki/Templates/formulario.html:41
+msgid ""
+"Enviando este formulario entiendes y aceptas de forma expresa la política de "
+"privacidad de datos."
+msgstr ""
+"By submitting this form, you explicitly understand and agree to the data "
+"privacy policy."
+
+#: appSki/Templates/formulario.html:42
+msgid ""
+"Este sitio está protegido por reCAPTCHA y las políticas de privacidad de "
+"Google y condiciones de uso."
+msgstr ""
+"This site is protected by reCAPTCHA and Google's privacy policies and terms "
+"of use."
+
+#: appSki/Templates/formulario.html:44
 msgid "Enviar"
 msgstr "Send"
 
@@ -166,7 +237,7 @@ msgstr "There are no locations created."
 msgid "Datos de la pista"
 msgstr "Track data"
 
-#: appSki/Templates/pista.html:18 appSki/forms.py:7
+#: appSki/Templates/pista.html:18 appSki/forms.py:7 appSki/views.py:183
 msgid "Nombre:"
 msgstr "Name:"
 
@@ -214,19 +285,19 @@ msgstr "List of all services"
 msgid "No hay servicios creados."
 msgstr "No services have been created."
 
-#: appSki/forms.py:8
+#: appSki/forms.py:8 appSki/views.py:184
 msgid "Apellidos:"
 msgstr "Last name:"
 
-#: appSki/forms.py:10
+#: appSki/forms.py:10 appSki/views.py:186
 msgid "Edad:"
 msgstr "Age:"
 
-#: appSki/forms.py:11
+#: appSki/forms.py:11 appSki/views.py:187
 msgid "Direccion:"
 msgstr "Address:"
 
-#: appSki/forms.py:12
+#: appSki/forms.py:12 appSki/views.py:188
 msgid "Email:"
 msgstr "Email:"
 
@@ -246,7 +317,7 @@ msgstr "Companies"
 msgid "Grupo de amigos"
 msgstr "Group of friends"
 
-#: appSki/forms.py:21
+#: appSki/forms.py:21 appSki/views.py:189
 msgid "Tipo de viaje:"
 msgstr "Type of trip:"
 
@@ -258,14 +329,14 @@ msgstr "Name:"
 
 #: appSki/views.py:27 appSki/views.py:43 appSki/views.py:58 appSki/views.py:73
 #: appSki/views.py:88 appSki/views.py:109 appSki/views.py:138
-#: appSki/views.py:153 appSki/views.py:171 appSki/views.py:184
-#: appSki/views.py:197 skiProject/settings.py:115
+#: appSki/views.py:153 appSki/views.py:171 appSki/views.py:194
+#: appSki/views.py:207
 msgid "Spanish"
 msgstr ""
 
 #: appSki/views.py:28 appSki/views.py:44 appSki/views.py:59 appSki/views.py:74
 #: appSki/views.py:89 appSki/views.py:110 appSki/views.py:139
-#: appSki/views.py:154 appSki/views.py:172 appSki/views.py:185
-#: appSki/views.py:198 skiProject/settings.py:116
+#: appSki/views.py:154 appSki/views.py:172 appSki/views.py:195
+#: appSki/views.py:208
 msgid "English"
 msgstr ""

@@ -191,3 +191,9 @@ button[type="submit"] {
 #idioma{
    padding: 20px;
 }
+
+.texto-superpuesto{
+    background-color: rgba(234, 93, 93, 0.7);
+    
+
+}

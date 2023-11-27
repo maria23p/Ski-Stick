@@ -6,22 +6,24 @@
 {% block contenido %}
 
 {% if lista_localidades %}
+    <div class="cont-imagenes">
     {% for l in lista_localidades %}
-    
-    <!-- cuando pulsas en una localidad te lleva a ella -->
-    <div class="imgIndex">
-        <div class="texto">
-            <a href="{% url 'estaciones' pk=l.id %}">{% trans l.nombre %}</a>
+        <div class="imgIndex">
+            <div class="texto">
+                <a href="{% url 'estaciones' pk=l.id %}">{% trans l.nombre %}
+            </div>
+            <div class="imagenes">
+                {% with "images/"|add:l.nombre|add:".jpg" as imagen %}
+                    <img src="{% static imagen %}" alt="">
+                {% endwith %}
+            </div>
+        <!-- esto aquí es para que al pulsar en la foto, te lleve a la pagina de las estacion de cada localidad-->
+        </a>
         </div>
-        <div class="imagenes">
-            {% with "images/"|add:l.nombre|add:".jpg" as imagen %}
-                <img src="{% static imagen %}" alt="">
-            {% endwith %}
-        </div>
-    </div>
         
 
     {% endfor %}
+</div>
              
 {% else %}
     <p>{% trans 'No hay localidades creadas.' %}</p>
