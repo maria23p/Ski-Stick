@@ -11,9 +11,8 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 90px;
-
+    
 }
-
 
 h1{
     text-align: center;
@@ -26,19 +25,19 @@ nav.boton{
     float: right;
 }
 
-.imgIndex {
-    display: flex;
-    flex-direction: column;
-    float: left;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-}
-
 .texto{
     padding: 10px;
     text-align: center;
     width: 100%;
+}
+
+.imgIndex {
+    display: flex;
+    flex-direction: column;
+    float: left; /* para colocar las fotos una al lado de otra horizontalmente */
+    /*margin: 0 auto;*/
+    align-items: center;
+    justify-content: center;
 }
 
 .imagenes{
@@ -51,6 +50,29 @@ nav.boton{
     height: 300px;
     text-align: center;
     margin-right: 20px;
+}
+
+.texto-superpuesto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:rgb(224, 224, 142);
+    padding: 5% 3%;
+    color: #000;
+    display: none;
+}
+
+.texto-superpuesto a{
+    text-decoration: none;
+}
+.img-container {
+    position: relative;
+    display: inline-block;
+}
+
+.img-container:hover .texto-superpuesto {
+    display: block;
 }
 
 
@@ -94,8 +116,6 @@ nav ul li{
  a:link, a:visited {
     color: rgb(46, 56, 122);
 }
-
-
 
 .imagen{
     flex-direction: row;
@@ -161,6 +181,14 @@ nav ul li{
 .localidad {
     text-align: center;
     margin: 0 15px; 
+    background-color: rgb(223, 216, 216);
+    width: 370px; /* Cambia el ancho según lo que necesites */
+    height: 370px;
+    margin-top: 20px;
+}
+
+.localidad a{
+    text-decoration: none;
 }
 .imagenPortada{
     flex-direction: row;
@@ -190,10 +218,4 @@ button[type="submit"] {
 /* para dejar espacio entre la barra y los campos para el cambio de idioma*/
 #idioma{
    padding: 20px;
-}
-
-.texto-superpuesto{
-    background-color: rgba(234, 93, 93, 0.7);
-    
-
 }

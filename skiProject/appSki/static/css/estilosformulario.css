@@ -106,12 +106,13 @@ nav ul li {
     color: rgb(46, 56, 122);
 }
 
-.link2 a:hover {
-    /* color de las palabras cuando se pasa por encima*/
-    color: #d2d1cf;    
-}
+
 /* para dejar espacio entre la barra y los campos para el cambio de idioma*/
-#idioma{
+#idioma {
     padding: 20px;
- }
- 
+}
+
+/* no sé como poner el boton de cambar idioma a la derecha*/
+.cambio {
+    margin-right: 20px;
+}
