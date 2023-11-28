@@ -7,36 +7,27 @@
 
 {% if estacion %}
 
-    <h2>{% trans estacion.nombre %}</h2>
-    <h3 id="datos">{% trans 'Datos de la estacion' %}</h3>
+<div class="estacion-details">
     <div class="imagen">
         {% with "images/"|add:estacion.nombre|add:".jpg" as imagen %}
             <img src="{% static imagen %}" alt="">
         {% endwith %}
     </div>
-    <ul>
-        <li>
-            {% trans 'Superficie(km):' %} {{estacion.superficie}}
-        </li>
-        <li>
-            {% trans 'Precio por dia:' %} {{estacion.precio_dia}}
-        </li>
-        <li>
-            {% trans 'Horario de apertura:' %} {{estacion.horario_ini}}
-        </li>
-        <li>
-            {% trans 'Horario de cierre:' %}' {{estacion.horario_fin}}
-        </li>
-        <li>
-            {% trans 'Telefono:' %} {{estacion.telefono}}
-        </li>
-        <li>
-            {% trans 'Estado:' %} {% trans estacion.estado %}
-        </li>
-        <li>
-            {% trans 'Localidad:' %} <a href="{% url 'estaciones' pk=estacion.localidad.id %}">{% trans estacion.localidad.nombre %}</a>
-        </li>
-    </ul>
+    <div class="datos-estacion">
+        <h2>{% trans estacion.nombre %}</h2>
+        <h3 id="datos">{% trans 'Datos de la estacion' %}</h3>
+        <ul>
+            <li>{% trans 'Superficie(km):' %} {{estacion.superficie}}</li>
+            <li>{% trans 'Precio por dia:' %} {{estacion.precio_dia}}</li>
+            <li>{% trans 'Horario de apertura:' %} {{estacion.horario_ini}}</li>
+            <li>{% trans 'Horario de cierre:' %}' {{estacion.horario_fin}}</li>
+            <li>{% trans 'Telefono:' %} {{estacion.telefono}}</li>
+            <li>{% trans 'Estado:' %} {% trans estacion.estado %}</li>
+            <li>{% trans 'Localidad:' %} <a href="{% url 'estaciones' pk=estacion.localidad.id %}">{% trans estacion.localidad.nombre %}</a></li>
+        </ul>
+    </div>
+</div>
+
     
     <h3 id="pistas">{% trans 'Lista de pistas' %}</h3>
     {% if pistas %}

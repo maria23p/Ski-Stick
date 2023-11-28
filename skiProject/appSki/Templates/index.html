@@ -27,17 +27,14 @@
 </div>
 
 <script>
-    /* DUDA */
-    /* 
-        1. me sale solo a veces el mensaje
-        2. no sé si se puede usar lo de localStorage
-        3. lo había hecho solo con alert pero me sale cada vez que le doy a Inicio entonces
-    */
-    alert("¡Bienvenid@ a nuestra página de esquí! Descubre las mejores estaciones, pistas y una gran cartelera de servicios para unas vacaciones increibles.")
-    /*if (!localStorage.getItem('mensajeMostrado')) {
-        alert('¡Bienvenid@ a nuestra página de esquí! Descubre las mejores estaciones, pistas y una gran cartelera de servicios para unas vacaciones increibles.');
-        localStorage.setItem('mensajeMostrado', 'true'); 
-    */
+    // Verificar si el mensaje ya se ha mostrado antes
+    if (!localStorage.getItem('mensajeMostrado')) {
+        // Mostrar el mensaje solo si no se ha mostrado antes
+        alert("¡Bienvenid@ a nuestra página de esquí! Descubre las mejores estaciones, pistas y una gran cartelera de servicios para unas vacaciones increíbles.");
+        
+        // Marcar el mensaje como mostrado para que no aparezca nuevamente
+        localStorage.setItem('mensajeMostrado', 'true');
+    }
 </script>
 {% endblock %}
 

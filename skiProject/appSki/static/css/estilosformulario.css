@@ -142,8 +142,14 @@ button[type="submit"] {
     width: auto; 
 }
 
-/* Para el botón Cambiar idioma */
+/* Estilos para el botón de cambio de idioma en todas las páginas, incluido el formulario */
 .cambio {
-    margin-left: auto;
-    width: auto; 
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 10px; /* Ajusta el margen según sea necesario */
 }
