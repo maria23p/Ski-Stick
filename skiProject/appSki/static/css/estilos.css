@@ -220,3 +220,26 @@ button[type="submit"] {
    padding: 20px;
 }
 
+.pistas{
+    display: flex;
+    flex-direction: column;
+    float: left; /* para colocar las fotos una al lado de otra horizontalmente */
+    /*margin: 0 auto;*/
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding:1%;
+}
+.textopistas{
+    padding: 10px;
+    background-color: rgb(220, 240, 245);
+    /* centrar dentro de la caja q se crea con el padding */
+    text-align: center;
+    width: 100%;
+}
+.textopistas a{
+    /* para quitar la línea de los links*/
+    text-decoration: none;
+
+}

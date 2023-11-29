@@ -5,12 +5,14 @@
 
 {% block contenido %}
     <h2>{% trans 'Listado de todas las pistas' %}</h2>
+    <h3>{% trans 'Seleccione la opción que le interese para obtener información detallada sobre la pista.' %}</h3>
     {% if todas_las_pistas %}
         {% for p in todas_las_pistas %}
-        <ul>
-            {{p.nombre}}
-        </ul>
-            
+        <div class="pistas">
+            <div class="textopistas">
+                <a href="{% url 'pista' pk=p.id%}">{{p.nombre}}</a>
+            </div>
+        </div>
         {% endfor %}
     {% else %}
         <p>{% trans 'No hay pistas creadas.' %}</p>
