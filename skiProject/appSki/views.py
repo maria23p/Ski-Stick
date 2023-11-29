@@ -8,6 +8,7 @@ from django.views.generic import DetailView, ListView, View
 from django.utils import translation
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
+from django.core.mail import send_mail
 
 
 # Portada.
@@ -176,7 +177,8 @@ class ServicioDetailView(DetailView):
 #formulario
 class FormularioView(View):
     template_name = 'formulario.html'
-
+    confirmacion_template = 'confirmacion.html'
+    
     def get(self, request, *args, **kwargs):
         formulario = MiFormulario()
         
@@ -206,8 +208,18 @@ class FormularioView(View):
         formulario = MiFormulario(request.POST)
         if formulario.is_valid():
             datos_formulario = formulario.cleaned_data
+            email_usu = datos_formulario['email']
+            # para enviar el email - no funciona
+            asunto = _('Asunto del correo'),
+            cuerpo = _('Cuerpo del correo'),
+            correoRemitente = 'appSkispain@gmail.com',
+            correoDest = [email_usu],
+
+            #send_mail(asunto, cuerpo, correoRemitente, correoDest, fail_silently=False)            
             # Realizar acciones con estos datos, como guardarlos en la BD, enviar un correo, etc. MIRAR ESTO!
-            return redirect('index')
+            #return redirect('index')
+            return render(request, self.confirmacion_template)
+
         context = {'formulario':formulario}
         context['LANGUAGES'] = [
             ('es', _('Spanish')),

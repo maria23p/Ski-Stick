@@ -7,10 +7,11 @@
     <h2>{% trans 'Listado de todos los servicios' %}</h2>
     {% if servicios_unicos %}
         {% for s in servicios_unicos %}
-        <ul>
-            {{s.nombre}}
-        </ul>
-            
+        <div class="pistas">
+            <div class="textopistas">
+                <a href="{% url 'servicio' pk=s.id%}">{{s.nombre}}</a>
+            </div>
+        </div>
         {% endfor %}
     {% else %}
         <p>{% trans 'No hay servicios creados.' %}</p>

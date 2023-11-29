@@ -1,5 +1,4 @@
-/* general  */
-                                     
+/* general  */                               
 body{    
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
     background-color: rgb(237, 232, 232);
@@ -220,10 +219,11 @@ button[type="submit"] {
    padding: 20px;
 }
 
+/* visualizacion*/
 .pistas{
     display: flex;
     flex-direction: column;
-    float: left; /* para colocar las fotos una al lado de otra horizontalmente */
+    float: left; /* para colocar una al lado de otra horizontalmente */
     /*margin: 0 auto;*/
     align-items: center;
     justify-content: center;
