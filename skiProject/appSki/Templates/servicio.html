@@ -17,14 +17,14 @@
             {% endwith %}
         </div>
         <div class="texto_servicio">
-            <h3>{% trans servicio.nombre %}</h3>
+            <h3>{{servicio.nombre}}</h3>
             <h3>{% trans 'Lista de estaciones con ese servicio' %}</h3>
             
             {% if estaciones %}
             <ol>
                 {% for e in estaciones %}
                     <li>
-                        {{ e.nombre}}
+                        {{e.nombre}}
                     </li>
                 {% endfor %}
             </ol>

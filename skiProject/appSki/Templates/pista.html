@@ -15,13 +15,13 @@
 {% if pista %}
     <ul>
         <li>
-            {% trans 'Nombre:' %} {% trans pista.nombre %}
+            {% trans 'Nombre:' %} {{pista.nombre}}
         </li>
         <li>
-            {% trans 'Color:' %} {% trans pista.color %}
+            {% trans 'Color:' %} {{pista.color}}
         </li>
         <li>
-            {% trans 'Estado:' %} {% trans pista.estado %}
+            {% trans 'Estado:' %} {{pista.estado}}
         </li>
     </ul>
 {% else %}

@@ -5,12 +5,12 @@
 
 {% block contenido %}
     <h2>{% trans 'Estaciones' %}</h2>
-    <h3>{% trans localidad.nombre %}</h3>
+    <h3>{{localidad.nombre}}</h3>
     {% if estaciones %}
         {% for e in estaciones %}
             <div class="imgIndex">
                 <div class="texto">
-                    <a href="{% url 'estacion' pk=e.id%}">{{ e.nombre}}</a>
+                    <a href="{% url 'estacion' pk=e.id%}">{{e.nombre}}</a>
                 </div>
                 <div class="imagenes">
                     {% with "images/"|add:e.nombre|add:".jpg" as imagen %}

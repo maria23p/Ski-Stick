@@ -9,11 +9,11 @@
 
     {% for estacion in estaciones_filtradas %}
         <div class="localidad">
-            <h2>{% trans estacion.localidad.nombre %}</h2>
+            <h2>{{estacion.localidad.nombre}}</h2>
             
             {% with estacion_filtrada=estacion %}
                 {% if estacion_filtrada %}
-                <h3><a href="{% url 'estacion' estacion_filtrada.id %}">{% trans estacion_filtrada.nombre %}</a></h3>
+                <h3><a href="{% url 'estacion' estacion_filtrada.id %}">{{estacion_filtrada.nombre}}</a></h3>
                     <div class="imagenPortada">
                         {% with "images/"|add:estacion_filtrada.nombre|add:".jpg" as imagen %}
                             <img src="{% static imagen %}" alt="{{ estacion_filtrada.nombre }}">
@@ -27,12 +27,11 @@
 </div>
 
 <script>
-    // Verificar si el mensaje ya se ha mostrado antes
+    // Primero se verifica si el mensaje ya se ha mostrado antes
     if (!localStorage.getItem('mensajeMostrado')) {
-        // Mostrar el mensaje solo si no se ha mostrado antes
+        // solo se muestra si no se ha mostrado antes
         alert("¡Bienvenid@ a nuestra página de esquí! Descubre las mejores estaciones, pistas y una gran cartelera de servicios para unas vacaciones increíbles.");
-        
-        // Marcar el mensaje como mostrado para que no aparezca nuevamente
+        // hay q marcar el mensaje como mostrado para que no aparezca nuevamente
         localStorage.setItem('mensajeMostrado', 'true');
     }
 </script>

@@ -8,7 +8,7 @@
     {% if servicios_unicos %}
         {% for s in servicios_unicos %}
         <ul>
-            {% trans s.nombre %}
+            {{s.nombre}}
         </ul>
             
         {% endfor %}

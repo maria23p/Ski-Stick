@@ -13,7 +13,7 @@
                 <div class="img-container">
                     <img src="{% static imagen %}" alt="">
                     <div class="texto-superpuesto">
-                        <a href="{% url 'estaciones' pk=l.id %}">{% trans l.nombre %}</a>
+                        <a href="{% url 'estaciones' pk=l.id %}">{{l.nombre}}</a>
                     </div>
                 </div>
             {% endwith %}
