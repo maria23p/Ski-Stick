@@ -8,7 +8,11 @@ from django.views.generic import DetailView, ListView, View
 from django.utils import translation
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
+# para intentar enviar un mail al realizar el formulario - no conseguido
 from django.core.mail import send_mail
+# vistas para la agendaVue
+from django.http import JsonResponse
+import json 
 
 
 # Portada.
@@ -228,8 +232,5 @@ class FormularioView(View):
         
         return render(request, self.template_name, context)
 
+# AgendaVue
  
-
-
-
-
