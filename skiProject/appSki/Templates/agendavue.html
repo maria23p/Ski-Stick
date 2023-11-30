@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estaciones de Esquí</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ header }}</h1>
+        <ul>
+            <li v-for="(estacion, index) in estaciones">
+                {{ estacion.nombre }} - {{ estacion.localidad.nombre }}
+                <button @click="eliminarEstacion(index)">Eliminar</button>
+            </li>
+        </ul>
+        <div>
+            <h2>Agregar Nueva Estación</h2>
+            <label>Nombre:</label>
+            <input v-model="nuevaEstacion.nombre" type="text" placeholder="Nombre de la estación">
+            <label>Localidad:</label>
+            <input v-model="nuevaEstacion.localidad" type="text" placeholder="Nombre de la localidad">
+            <button @click="agregarEstacion">Agregar Estación</button>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                header: 'Estaciones de Esquí',
+                estaciones: [],
+                nuevaEstacion: { nombre: '', localidad: '' }
+            },
+            mounted() {
+                // Recuperar estaciones del almacenamiento local al cargar la página
+                const storedEstaciones = localStorage.getItem('estaciones');
+                this.estaciones = storedEstaciones ? JSON.parse(storedEstaciones) : [];
+            },
+            methods: {
+                agregarEstacion: function () {
+                    this.estaciones.push({
+                        nombre: this.nuevaEstacion.nombre,
+                        localidad: { nombre: this.nuevaEstacion.localidad }
+                    });
+
+                    // Guardar estaciones en el almacenamiento local
+                    localStorage.setItem('estaciones', JSON.stringify(this.estaciones));
+
+                    this.nuevaEstacion.nombre = '';
+                    this.nuevaEstacion.localidad = '';
+                },
+                eliminarEstacion: function (index) {
+                    this.estaciones.splice(index, 1);
+
+                    // Actualizar el almacenamiento local después de eliminar una estación
+                    localStorage.setItem('estaciones', JSON.stringify(this.estaciones));
+                }
+            }
+        });
+    </script>
+</body>
+</html>

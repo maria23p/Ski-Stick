@@ -48,7 +48,6 @@ class LocalidadesListView(ListView):
 
 #devuelve listado de estaciones
 class EstacionesListView(ListView):
-    model = Estacion
     template_name = 'estaciones.html'
     queryset = Estacion.objects.order_by('nombre')
     context_object_name = 'estaciones'
@@ -60,6 +59,7 @@ class EstacionesListView(ListView):
             ('en', _('English')),
         ]
         return context
+
 
 #devuelve listado de pistas
 class PistasListView(ListView):
