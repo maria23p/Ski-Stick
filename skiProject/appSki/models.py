@@ -16,20 +16,6 @@ class Pista(models.Model):
     
     def __str__(self):
         return self.nombre
-   #  def color_en_idioma(self, idioma):
-    #    if idioma == 'es':
-     #       return _(self.color)  # Traducción al español
-     #   elif idioma == 'en':
-            # Traducción al inglés
-    #        if self.color.lower() == 'roja':
-     #           return 'red'
-            # Agrega más traducciones según sea necesario para otros colores en inglés
-      #      else:
-       #         return self.color
-        #else:
-         #   return self.color  """
-       
-    
    
 
 class Servicio(models.Model):
