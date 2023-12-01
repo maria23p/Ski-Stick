@@ -26,7 +26,14 @@
                 <input v-model="nuevaEstacion.nombre" type="text" placeholder="{% trans 'Nombre de la estacion' %}">
                 <button type="submit">{% trans 'Agregar estacion' %}</button>
             </form>
+            <ul>
+                <li v-for="(estacion, index) in todasLasEstaciones.slice().reverse()" :key="index">
+                    {{ estacion.nombre }}
+                    <button @click="eliminarEstacion(index)">{% trans 'Eliminar' %}</button>
+                </li>
+            </ul>
         </div>
+        
     </div>
 
     <script src="{% static 'js/vue.js' %}"></script>
@@ -46,14 +53,23 @@
             methods: {
                 agregarEstacion: function (event) {
                     if (this.nuevaEstacion.nombre.trim() !== '') {
-                        this.todasLasEstaciones.push({ nombre: this.nuevaEstacion.nombre });
+                        this.todasLasEstaciones.unshift({ nombre: this.nuevaEstacion.nombre });
                         this.nuevaEstacion.nombre = '';
+                        this.guardarEstacionesLocalmente();
+
                     }
                 },
                 eliminarEstacion: function (index) {
                     this.todasLasEstaciones.splice(index, 1);
+                    this.guardarEstacionesLocalmente();
+
+                },
+
+            },
+                guardarEstacionesLocalmente: function () {
+                    localStorage.setItem('estaciones', JSON.stringify(this.todasLasEstaciones));
                 }
-            }
+            
         });
     </script>
 {% endblock %}
