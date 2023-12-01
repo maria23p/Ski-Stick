@@ -4,15 +4,56 @@
 {% block titulo %}{% trans 'Todas las estaciones' %}{% endblock %}
 
 {% block contenido %}
-    <h2>{% trans 'Listado de todas las estaciones' %}</h2>
-    {% if todas_las_estaciones %}
-        {% for e in todas_las_estaciones %}
-        <ul>
-            {{e.nombre}}
-        </ul>
-            
-        {% endfor %}
-    {% else %}
-        <p>{% trans 'No hay estaciones creadas.' %}</p>
-    {% endif %}
+    <div id="app">
+        <h2>{% trans 'Listado de todas las estaciones' %}</h2>
+        {% if todasLasEstaciones %}
+            {% for estacion in todasLasEstaciones %}
+                <ul>
+                    <li>
+                        {{ estacion.nombre }}
+                        <button @click="eliminarEstacion(index)">{% trans 'Eliminar' %}</button>
+                    </li>
+                </ul>
+            {% endfor %}
+        {% else %}
+            <p>{% trans 'No hay estaciones creadas.' %}</p>
+        {% endif %}
+
+        <div>
+            <h2>{% trans 'Añadir nueva estacion' %}</h2>
+            <form @submit.prevent="agregarEstacion">
+                <label>{% trans 'Nombre' %}:</label>
+                <input v-model="nuevaEstacion.nombre" type="text" placeholder="{% trans 'Nombre de la estacion' %}">
+                <button type="submit">{% trans 'Agregar estacion' %}</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'js/vue.js' %}"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                todasLasEstaciones: [],
+                nuevaEstacion: { nombre: '' }
+            },
+
+            mounted() {
+                // Recuperar estaciones del almacenamiento local al cargar la página
+                const storedEstaciones = localStorage.getItem('estaciones');
+                this.todasLasEstaciones = storedEstaciones ? JSON.parse(storedEstaciones) : [];
+            },
+            methods: {
+                agregarEstacion: function (event) {
+                    if (this.nuevaEstacion.nombre.trim() !== '') {
+                        this.todasLasEstaciones.push({ nombre: this.nuevaEstacion.nombre });
+                        this.nuevaEstacion.nombre = '';
+                    }
+                },
+                eliminarEstacion: function (index) {
+                    this.todasLasEstaciones.splice(index, 1);
+                }
+            }
+        });
+    </script>
 {% endblock %}

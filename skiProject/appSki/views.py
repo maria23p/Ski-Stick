@@ -63,6 +63,11 @@ class EstacionesListView(ListView):
             ('en', _('English')),
         ]
         return context
+    
+def estaciones_todas(request):
+    todas_las_estaciones = Estacion.objects.all()
+    print(todas_las_estaciones)
+    return render(request, 'estaciones_todas.html', {'todasLasEstaciones': todas_las_estaciones})
 
 
 #devuelve listado de pistas
@@ -232,26 +237,3 @@ class FormularioView(View):
         
         return render(request, self.template_name, context)
 
-# AgendaVue
-def obtenerEstaciones(request):
-    estaciones = Estacion.objects.all().values()
-    return JsonResponse(list(estaciones), safe = False)
-
-def crearEstacion(request):
-    data = json.loads(request.body)
-    nueva_estacion = Estacion.objects.create(
-        nombre = data['nombre'],
-        localidad = data['localidad']
-        superficie = data['superficie']
-        precio_dia = data['precio dia']
-        horario_ini = data['horario inicio']
-        horario_fin = data['horario fin']
-        telefono = data['telefono']
-        estado = data['estado']
-        
-
-    estado = models.CharField(max_length = 50)
-    pistas = models.ManyToManyField(Pista, through='EstacionPista')
-    servicios = models.ManyToManyField(Servicio, through='EstacionServicio')
-    imagen = models.ImageField(upload_to='img',blank=True,null=True,verbose_name='Image')
-    )
