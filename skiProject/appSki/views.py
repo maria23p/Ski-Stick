@@ -64,11 +64,11 @@ class EstacionesListView(ListView):
         ]
         return context
     
-def estaciones_todas(request):
+""" def estaciones_todas(request):
     todas_las_estaciones = Estacion.objects.all()
     print(todas_las_estaciones)
     return render(request, 'estaciones_todas.html', {'todasLasEstaciones': todas_las_estaciones})
-
+ """
 
 #devuelve listado de pistas
 class PistasListView(ListView):
