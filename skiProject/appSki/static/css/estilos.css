@@ -24,6 +24,7 @@ h2{
 }
 nav{
     position: fixed;
+    /*position: absolute;*/
     top: 0;
     left: 0;
     width: 100%;
@@ -259,6 +260,7 @@ nav ul li{
 }
 footer {
     position: fixed;
+    /*position: absolute;*/
     bottom: 0;
     width: 100%;
     background-color: #c5c8c9;
@@ -267,12 +269,13 @@ footer {
     padding: 20px 0;
 }
 
-footer .footer-above {
+
+.footer-above {
     padding-top: 5px;
     background-color: rgb(237, 232, 232);
 }
 
-footer .footer-below {
+.footer-below {
     padding-top: 5px;
     background-color: rgb(237, 232, 232);
 }

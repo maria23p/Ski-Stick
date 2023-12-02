@@ -1,5 +1,5 @@
 from django import forms
-
+from django.utils.translation import gettext_lazy as _
 
 class MiFormulario(forms.Form):
     nombre = forms.CharField(label="Nombre:", max_length=100)

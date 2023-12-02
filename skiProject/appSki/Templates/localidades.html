@@ -4,19 +4,21 @@
 {% block titulo %}{% trans 'Listado de localidades' %}{% endblock %}
 
 {% block contenido %}
-
+<h2>{% trans 'Localidades' %}</h2>
 {% if lista_localidades %}
     {% for l in lista_localidades %}
     <div class="imgIndex">
         <div class="imagenes">
+            <a href="{% url 'estaciones' pk=l.id %}">
             {% with "images/"|add:l.nombre|add:".jpg" as imagen %}
                 <div class="img-container">
                     <img src="{% static imagen %}" alt="">
                     <div class="texto-superpuesto">
-                        <a href="{% url 'estaciones' pk=l.id %}">{{l.nombre}}</a>
+                        {{l.nombre}}
                     </div>
                 </div>
             {% endwith %}
+        </a>
         </div>
     </div>
     {% endfor %}

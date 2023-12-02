@@ -32,7 +32,7 @@
         <label class="labelf" for="schoolchildren">{% trans 'Escolares' %}</label>
         <img src="{% static 'images/schoolchildren.png' %}" alt="Descripción de la imagen 2">
     </div>
-    <form method="post" class="formulario-justificado">
+    <form method="post" id="mFormulario"class="formulario-justificado">
         {% csrf_token %}
         <div class="form-group">
             {{ formulario.as_p }}

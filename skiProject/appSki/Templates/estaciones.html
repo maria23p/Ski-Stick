@@ -13,9 +13,11 @@
                     <a href="{% url 'estacion' pk=e.id%}">{{e.nombre}}</a>
                 </div>
                 <div class="imagenes">
+                    <a href="{% url 'estacion' pk=e.id%}">
                     {% with "images/"|add:e.nombre|add:".jpg" as imagen %}
                     <img src="{% static imagen %}" alt="">
                     {% endwith %}
+                </a>
                 </div>
             </div> 
         {% endfor %}
