@@ -7,25 +7,7 @@
         <title>{% block titulo %}AppSki{% endblock %}</title>
     </head>
     <body>
-        
         <div id="content">
-            <div id = "idioma">
-            <form action="{% url 'set_language' %}" method="post">
-                {% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}" />
-                <select name="language" id="language">
-                    {% for lang_code, lang_name in LANGUAGES %}
-                        <option value="{{ lang_code }}"
-                            {% if lang_code == request.LANGUAGE_CODE %}
-                                selected
-                            {% endif %}>
-                            {{ lang_name }}
-                        </option>
-                    {% endfor %}
-                </select>
-                <button class="cambio" type="submit">{% trans 'Cambiar idioma' %}</button>
-            </form>
-        </div>
             <nav>
                 <ul class="link1">
                     <li><a href="{% url 'index' %}">{% trans 'Inicio' %}</a></li>
@@ -35,6 +17,25 @@
                     <li><a href="{% url 'servicios_todos' %}">{% trans 'Servicios' %}</a></li>
                     <li><a href="{% url 'show_formulario' %}">{% trans 'Formulario' %}</a></li>
                     <li><a href="{% url 'estacionesagendavue' %}">{% trans 'Vue' %}</a></li>
+                    <li>
+                        <div id="idioma">
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                <select name="language" id="language">
+                                    {% for lang_code, lang_name in LANGUAGES %}
+                                        <option value="{{ lang_code }}"
+                                            {% if lang_code == request.LANGUAGE_CODE %}
+                                                selected
+                                            {% endif %}>
+                                            {{ lang_name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <li><button id="btn-nav" type="submit">{% trans 'Cambiar idioma' %}</button></li>
+                            </form>
+                        </div>
+                    </li>
                 </ul>
             </nav>
            
@@ -42,7 +43,21 @@
 	     <h1>AppSki</h1>
             {% block contenido %}{% endblock %}
         </div>
-        
+        <!-- footer -->
+        <footer class="text-center">
+            <div class="footer-above">
+                <div class="container">
+                    <img src={% static '/images/Instagram.webp' %} alt="instagram">
+                    <img src={% static '/images/tiktok.jpg' %} alt="tiktok">
+                    <img src={% static '/images/facebook.avif' %} alt="facebook">
+                    <p id="redes">{% trans 'Tambien nos puede encontrar en nuestras redes sociales: @appSki' %}</p>
+                </div>
+            </div>
+            <div class="footer-below">
+                <!-- color -->
+            </div>
+                
+        </footer>
     </body>
-    
+
 </html>  

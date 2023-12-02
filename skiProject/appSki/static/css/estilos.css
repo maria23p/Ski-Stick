@@ -9,16 +9,31 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 90px;
-    
+    margin-top: 30px;
 }
 
 h1{
     text-align: center;
+    margin-top: 150px;
+    margin-bottom: 70px;
+}
+h2{
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;   
 }
 nav{
-    margin-top: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(223, 216, 216);
+    color: white;
+    padding: 10px 0px;
+    /* creo que se puede quitar */
+    z-index: 1000;    
 }
+
 nav.boton{
     margin-right: 10px;
     float: right;
@@ -36,8 +51,7 @@ nav.boton{
     float: left; /* para colocar las fotos una al lado de otra horizontalmente */
     /*margin: 0 auto;*/
     align-items: center;
-    justify-content: center;
-}
+    justify-content: center;}
 
 .imagenes{
     display: flex;
@@ -83,8 +97,10 @@ nav.boton{
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    max-width: 700px; 
+    max-width: 750px; 
+    font-size: 19px;
 }
+
 
 nav ul{
     list-style: none;
@@ -183,7 +199,6 @@ nav ul li{
     background-color: rgb(223, 216, 216);
     width: 370px; /* Cambia el ancho según lo que necesites */
     height: 370px;
-    margin-top: 20px;
 }
 
 .localidad a{
@@ -203,20 +218,16 @@ nav ul li{
 /* language */
 #language {
     width: 200px; /* Define el ancho deseado */
-    padding: 5px; /* Agrega relleno para mejorar el aspecto visual */
-    float: right;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
 
 }
 
-/* Estilo para el botón 'Change Language' */
-button[type="submit"] {
-    padding: 8px 15px; /* Define el espaciado interno del botón */
-    float: right;
-
-}
-/* para dejar espacio entre la barra y los campos para el cambio de idioma*/
+/* caja que tiene lo de elegir el lenguaje y el boton */
 #idioma{
-   padding: 20px;
+    padding: 30px 40px;
+    text-align: right; 
+    margin-right: 20px;
 }
 
 /* visualizacion*/
@@ -242,4 +253,119 @@ button[type="submit"] {
     /* para quitar la línea de los links*/
     text-decoration: none;
 
+}
+#content{
+    margin-bottom: 130px;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #c5c8c9;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .footer-above {
+    padding-top: 5px;
+    background-color: rgb(237, 232, 232);
+}
+
+footer .footer-below {
+    padding-top: 5px;
+    background-color: rgb(237, 232, 232);
+}
+
+footer img{
+    width: 60px;
+    height: 60px;
+    margin-right: 30px;
+    margin-left: 10px;
+}
+
+footer #redes{
+    float: right;
+    margin-right: 160px;
+    font-weight: bold;
+    color: #acaeaf;
+}
+
+
+/* FORMULARIO */
+.containerf {
+    width: 75%; 
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.containerf p {
+    text-align: justify;
+}
+
+/* Si quieres justificar solo el contenido del formulario y no otros elementos, puedes agregar una clase específica al formulario y apuntar a esa clase */
+.formulario-justificado {
+    text-align: justify;
+}
+
+.parrafof {
+    margin-bottom: 35px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.labelf {
+    display: block;
+    font-weight: bold;
+}
+
+/* para que todos los campos de relleno por el usuario tengan las mismas medidas*/
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 300px; 
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+/* el de ChoiceField no se hace igual que los demás(los de arriba)*/
+select{
+    width: 300px; 
+    height: 40px; 
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+/* todos los botones */
+#btn-n {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    float: right;
+}
+#btn-nav{
+    padding: 10px 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(89, 91, 91);;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  
+    position: absolute;
+    bottom: 50px; 
+    right: 30px; 
 }

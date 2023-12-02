@@ -1,12 +1,12 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% load i18n %}
 {% block titulo %}{% trans 'Formulario' %}{% endblock %}
 
 
 {% block contenido %}
-<div class="container">
-<h1>{% trans 'Viajes para esquiar en grupo' %}</h1>
+<div class="containerf">
+<h2>{% trans 'Viajes para esquiar en grupo' %}</h2>
 
     <p class="parrafof">{% trans '¿Quieres organizar un viaje inolvidable para esquiar con tu grupo?' %}
         {% trans '¿Eres parte de una empresa, un grupo numeroso o un grupo escolar buscando una escapada a la nieve?' %}
@@ -32,7 +32,7 @@
         <label class="labelf" for="schoolchildren">{% trans 'Escolares' %}</label>
         <img src="{% static 'images/schoolchildren.png' %}" alt="Descripción de la imagen 2">
     </div>
-    <form method="post" class=" "formulario-justificado">
+    <form method="post" class="formulario-justificado">
         {% csrf_token %}
         <div class="form-group">
             {{ formulario.as_p }}
@@ -41,7 +41,7 @@
             {% trans 'Enviando este formulario entiendes y aceptas de forma expresa la política de privacidad de datos.' %}
             {% trans 'Este sitio está protegido por reCAPTCHA y las políticas de privacidad de Google y condiciones de uso.'%}
         </p>
-        <button type="submit">{% trans 'Enviar' %}</button>
+        <button id="btn-n" type="submit">{% trans 'Enviar' %}</button>
     </form>
 </div>
 {% endblock %}

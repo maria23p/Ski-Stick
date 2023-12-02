@@ -24,7 +24,8 @@
             <form @submit.prevent="agregarEstacion">
                 <label>{% trans 'Nombre' %}:</label>
                 <input v-model="nuevaEstacion.nombre" type="text" placeholder="{% trans 'Nombre de la estacion' %}">
-                <button type="submit">{% trans 'Agregar estacion' %}</button>
+                <p>{{ nuevaEstacion.nombre }}</p>
+                <button id="btn-n" type="submit">{% trans 'Agregar estacion' %}</button>
             </form>
             <ul>
                 <li v-for="(estacion, index) in todasLasEstaciones.slice().reverse()" :key="index">
@@ -49,26 +50,36 @@
                 // Recuperar estaciones del almacenamiento local al cargar la página
                 const storedEstaciones = localStorage.getItem('estaciones');
                 this.todasLasEstaciones = storedEstaciones ? JSON.parse(storedEstaciones) : [];
+        
             },
             methods: {
                 agregarEstacion: function (event) {
+                    console.log('Nombre de la nueva estación:', this.nuevaEstacion.nombre);
+
                     if (this.nuevaEstacion.nombre.trim() !== '') {
-                        this.todasLasEstaciones.unshift({ nombre: this.nuevaEstacion.nombre });
+                        console.log('Dentro del if. Nombre:', this.nuevaEstacion.nombre);
+                        this.todasLasEstaciones.push({ nombre: this.nuevaEstacion.nombre });
+                        console.log('Estaciones después de agregar:', this.todasLasEstaciones);
                         this.nuevaEstacion.nombre = '';
                         this.guardarEstacionesLocalmente();
+                        this.$forceUpdate();
 
+                    } else {
+                        console.log('El nombre de la estación está vacío o contiene solo espacios en blanco.');
                     }
-                },
+
+},
+
                 eliminarEstacion: function (index) {
                     this.todasLasEstaciones.splice(index, 1);
                     this.guardarEstacionesLocalmente();
 
                 },
-
-            },
+                // Para que se guarden los cambios realizados en el localStorage
                 guardarEstacionesLocalmente: function () {
                     localStorage.setItem('estaciones', JSON.stringify(this.todasLasEstaciones));
                 }
+            }
             
         });
     </script>
