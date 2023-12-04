@@ -4,17 +4,17 @@ body{
     background-color: rgb(237, 232, 232);
     margin: 0 auto;
     padding: 10px;
-    max-width: 100%; 
+    /*max-width: 100%; 
     min-height: 65vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 30px;*/
 }
 
 h1{
     text-align: center;
-    margin-top: 150px;
+    margin-top: 70px;
     margin-bottom: 70px;
 }
 h2{
@@ -23,16 +23,15 @@ h2{
     margin-top: 20px;   
 }
 nav{
-    position: fixed;
-    /*position: absolute;*/
+    /*position: fixed;*/
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     background-color: rgb(223, 216, 216);
     color: white;
-    padding: 10px 0px;
     /* creo que se puede quitar */
-    z-index: 1000;    
+   /* z-index: 1000; */   
 }
 
 nav.boton{
@@ -98,8 +97,8 @@ nav.boton{
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    max-width: 750px; 
-    font-size: 19px;
+    max-width: 800px; 
+    font-size: 14px;
 }
 
 
@@ -117,7 +116,7 @@ nav ul li{
 
 
 .link1 a{
-    padding: 10px;
+    padding: 8px;
     text-decoration: none;
     color: rgb(46, 56, 122);
 }   
@@ -198,8 +197,8 @@ nav ul li{
     text-align: center;
     margin: 0 15px; 
     background-color: rgb(223, 216, 216);
-    width: 370px; /* Cambia el ancho según lo que necesites */
-    height: 370px;
+    width: 300px; /* Cambia el ancho según lo que necesites */
+    height: 300px;
 }
 
 .localidad a{
@@ -211,8 +210,8 @@ nav ul li{
 }
 
 .imagenPortada img {
-    width: 350px; /* Ancho máximo del contenedor padre */
-    height: 250px; /* Altura máxima del contenedor padre */
+    width: 300px; /* Ancho máximo del contenedor padre */
+    height: 200px; /* Altura máxima del contenedor padre */
 }
 
 
@@ -226,11 +225,27 @@ nav ul li{
 
 /* caja que tiene lo de elegir el lenguaje y el boton */
 #idioma{
-    padding: 30px 40px;
+    padding: 10px;
     text-align: right; 
-    margin-right: 20px;
+    display:flex;
+    align-items: center;
+     /*margin-right: 20px;*/
 }
+#idioma select{
+    width: 120px;
+    font-size: 14px;
 
+}
+#idioma button{
+    padding: 8px 15px;
+    border: none;
+    border-radius:5px;
+    background-color: rgb(89, 91, 91);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
 /* visualizacion*/
 .pistas{
     display: flex;
@@ -256,27 +271,35 @@ nav ul li{
 
 }
 #content{
-    margin-bottom: 130px;
+    /*margin-bottom: 130px;*/
+    padding-top: 50px;
+    padding-bottom: 150px;
 }
 footer {
-    position: fixed;
-    /*position: absolute;*/
-    bottom: 0;
+    /*position: fixed;*/
+    position: relative;
+    /*bottom: 0;*/
     width: 100%;
     background-color: #c5c8c9;
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    clear:both;
 }
 
-
+.footer-container{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top:900px;
+}
 .footer-above {
-    padding-top: 5px;
+    padding-top: 1px;
     background-color: rgb(237, 232, 232);
 }
 
 .footer-below {
-    padding-top: 5px;
+    padding-top: 1x;
     background-color: rgb(237, 232, 232);
 }
 
