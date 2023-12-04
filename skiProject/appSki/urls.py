@@ -5,7 +5,6 @@ urlpatterns = [
 path('', views.PortadaListView.as_view(), name='index'),
 path('localidades/', views.LocalidadesListView.as_view(), name='localidades'),
 path('estaciones/', views.EstacionesListView.as_view(), name = 'estaciones_todas'),
-path('todas_estaciones/', views.EstacionesTodasListView.as_view(), name = 'estacionesagendavue'),
 path('todas_pistas/', views.PistasListView.as_view(), name='pistas_todas'),
 path('todos_servicios/', views.ServiciosListView.as_view(), name='servicios_todos'),
 path('localidades/<int:pk>/estaciones', views.EstacionesLocalidadListView.as_view(), name='estaciones'),

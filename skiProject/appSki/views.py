@@ -64,23 +64,6 @@ class EstacionesListView(ListView):
         ]
         return context
     
-""" def estaciones_todas(request):
-    todas_las_estaciones = Estacion.objects.all()
-    print(todas_las_estaciones)
-    return render(request, 'estaciones_todas.html', {'todasLasEstaciones': todas_las_estaciones})
- """
-class EstacionesTodasListView(ListView):
-    template_name = 'estaciones_todas.html'
-    queryset = Estacion.objects.all()
-    context_object_name = 'todasLasEstaciones'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['LANGUAGES'] = [
-            ('es', _('Spanish')),
-            ('en', _('English')),
-        ]
-        return context
 
 #devuelve listado de pistas
 class PistasListView(ListView):
