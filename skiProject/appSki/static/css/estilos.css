@@ -3,7 +3,7 @@ body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
     background-color: rgb(237, 232, 232);
     margin: 0 auto;
-    padding: 10px;
+    padding: 1%;
     /*max-width: 100%; 
     min-height: 65vh;
     display: flex;
@@ -14,13 +14,13 @@ body{
 
 h1{
     text-align: center;
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 h2{
-    font-size: 24px;
+    font-size: 2vw;
     text-align: center;
-    margin-top: 20px;   
+    margin-top: 2vh;   
 }
 nav{
     /*position: fixed;*/
@@ -35,12 +35,12 @@ nav{
 }
 
 nav.boton{
-    margin-right: 10px;
+    margin-right: 1%;
     float: right;
 }
 
 .texto{
-    padding: 10px;
+    padding: 1%;
     text-align: center;
     width: 100%;
 }
@@ -51,7 +51,8 @@ nav.boton{
     float: left; /* para colocar las fotos una al lado de otra horizontalmente */
     /*margin: 0 auto;*/
     align-items: center;
-    justify-content: center;}
+    justify-content: center;
+}
 
 .imagenes{
     display: flex;
@@ -59,10 +60,10 @@ nav.boton{
 }
 
 .imagenes img{
-    width: 300px;
-    height: 300px;
+    width: 20vw;
+    height: 20vw;
     text-align: center;
-    margin-right: 20px;
+    margin-right: 2vw;
 }
 
 .texto-superpuesto {
@@ -92,13 +93,13 @@ nav.boton{
 .link1{
     background-color: rgb(223, 216, 216);
     color: white;
-    padding: 10px 0;
+    padding: 1% 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    max-width: 800px; 
-    font-size: 14px;
+    max-width: 80%; 
+    font-size: 1.4vw;
 }
 
 
@@ -111,12 +112,12 @@ nav ul{
 
 nav ul li{
     display: inline;
-    margin-left: 20px; 
+    margin-left: 2%; 
 }
 
 
 .link1 a{
-    padding: 8px;
+    padding: 0.8em;
     text-decoration: none;
     color: rgb(46, 56, 122);
 }   
@@ -139,7 +140,7 @@ nav ul li{
 
 .imagen img{
     text-align: center;
-    margin-right: 100px;
+    margin-right: 4%;
     max-width: 60%; /* Ancho máximo del contenedor padre */
     max-height: 60%; /* Altura máxima del contenedor padre */
     width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
@@ -178,7 +179,7 @@ nav ul li{
 
 .imagen_servicio img{
     text-align: center;
-    margin-right: 100px;
+    margin-right: 5%;
     max-width: 40%; /* Ancho máximo del contenedor padre */
     max-height: 40%; /* Altura máxima del contenedor padre */
     width: auto; /* Permite que la anchura se ajuste automáticamente según la altura */
@@ -190,15 +191,16 @@ nav ul li{
 
 .portada {
     display: flex; 
+    flex-wrap: wrap;
     justify-content: space-between; 
     align-items: flex-start; 
 }
 .localidad {
     text-align: center;
-    margin: 0 15px; 
+    margin: 0 1.5%; 
     background-color: rgb(223, 216, 216);
-    width: 300px; /* Cambia el ancho según lo que necesites */
-    height: 300px;
+    width: 30%; /* Cambia el ancho según lo que necesites */
+    height: 30vh;
 }
 
 .localidad a{
@@ -210,41 +212,43 @@ nav ul li{
 }
 
 .imagenPortada img {
-    width: 300px; /* Ancho máximo del contenedor padre */
-    height: 200px; /* Altura máxima del contenedor padre */
+    width: 100%; /* Ancho máximo del contenedor padre */
+    height: auto; /* Altura ajustada automáticamente */
+    max-width: 100%; /* Ajuste máximo */
+    max-height: 50vh; /* Altura relativa a la altura del viewport */
 }
 
 
 /* language */
 #language {
-    width: 200px; /* Define el ancho deseado */
-    font-size: 16px;
+    width: 15%; /* Define el ancho deseado */
+    font-size: 1rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
 
 }
 
 /* caja que tiene lo de elegir el lenguaje y el boton */
 #idioma{
-    padding: 10px;
+    padding: 1%;
     text-align: right; 
     display:flex;
     align-items: center;
      /*margin-right: 20px;*/
 }
 #idioma select{
-    width: 120px;
-    font-size: 14px;
+    width: 15%;
+    font-size: 0.8rem;
 
 }
 #idioma button{
-    padding: 8px 15px;
+    padding: 0.6rem 1.5rem;
     border: none;
     border-radius:5px;
     background-color: rgb(89, 91, 91);
     color: white;
     cursor: pointer;
-    font-size: 14px;
-    margin-left: 10px;
+    font-size: 0.8rem;
+    margin-left: 1%;
 }
 /* visualizacion*/
 .pistas{
@@ -254,12 +258,12 @@ nav ul li{
     /*margin: 0 auto;*/
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 1%;
+    margin-right: 1%;
     padding:1%;
 }
 .textopistas{
-    padding: 10px;
+    padding: 1%;
     background-color: rgb(220, 240, 245);
     /* centrar dentro de la caja q se crea con el padding */
     text-align: center;
@@ -272,8 +276,8 @@ nav ul li{
 }
 #content{
     /*margin-bottom: 130px;*/
-    padding-top: 50px;
-    padding-bottom: 150px;
+    padding-top: 5%;
+    padding-bottom: 8%;
 }
 footer {
     /*position: fixed;*/
@@ -283,7 +287,7 @@ footer {
     background-color: #c5c8c9;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 2% 0;
     clear:both;
 }
 
@@ -291,10 +295,10 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    margin-top:900px;
+    margin-top:90%;
 }
 .footer-above {
-    padding-top: 1px;
+    padding-top: 0.1%;
     background-color: rgb(237, 232, 232);
 }
 
@@ -303,15 +307,15 @@ footer {
 }
 
 footer img{
-    width: 60px;
-    height: 60px;
-    margin-right: 30px;
-    margin-left: 10px;
+    width: 8%;
+    height: 8%;
+    margin-right: 5%;
+    margin-left: 1%;
 }
 
 footer #redes{
     float: right;
-    margin-right: 160px;
+    margin-right: 12%;
     font-weight: bold;
     color: #acaeaf;
 }
@@ -334,13 +338,13 @@ footer #redes{
 }
 
 .parrafof {
-    margin-bottom: 35px;
+    margin-bottom: 2rem;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 1.1rem;
 }
 
 .labelf {
@@ -352,9 +356,9 @@ footer #redes{
 input[type="text"],
 input[type="email"],
 input[type="number"] {
-    width: 300px; 
-    height: 40px;
-    padding: 10px;
+    width: 15%; 
+    height: 2.5rem;
+    padding: 1rem;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -362,9 +366,9 @@ input[type="number"] {
 }
 /* el de ChoiceField no se hace igual que los demás(los de arriba)*/
 select{
-    width: 300px; 
-    height: 40px; 
-    padding: 10px;
+    width: 15%; 
+    height: 2.5rem; 
+    padding: 1rem;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -372,25 +376,25 @@ select{
 }
 /* todos los botones */
 #btn-n {
-    padding: 8px 15px;
+    padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     float: right;
 }
 #btn-nav{
-    padding: 10px 40px;
+    padding: 1rem 2.5rem;
     border: none;
     border-radius: 5px;
     background-color: rgb(89, 91, 91);;
     color: white;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  
     position: absolute;
-    bottom: 50px; 
-    right: 30px; 
+    bottom: 5%; 
+    right: 3%; 
 }
