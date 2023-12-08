@@ -199,7 +199,7 @@ nav ul li{
     text-align: center;
     margin: 0 1.5%; 
     background-color: rgb(223, 216, 216);
-    width: 30%; /* Cambia el ancho según lo que necesites */
+    width: 20%; /* Cambia el ancho según lo que necesites */
     height: 30vh;
 }
 
@@ -218,38 +218,29 @@ nav ul li{
     max-height: 50vh; /* Altura relativa a la altura del viewport */
 }
 
-
-/* language */
-#language {
-    width: 15%; /* Define el ancho deseado */
-    font-size: 1rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
-
-}
-
 /* caja que tiene lo de elegir el lenguaje y el boton */
-#idioma{
+#idioma {
     padding: 1%;
-    text-align: right; 
-    display:flex;
-    align-items: center;
-     /*margin-right: 20px;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* Puedes ajustar esto según tus preferencias */
 }
-#idioma select{
-    width: 15%;
-    font-size: 0.8rem;
 
+#idioma select {
+    width: 25%;
+    font-size: 0.8rem;
 }
-#idioma button{
+
+#idioma button {
     padding: 0.6rem 1.5rem;
     border: none;
-    border-radius:5px;
+    border-radius: 5px;
     background-color: rgb(89, 91, 91);
     color: white;
     cursor: pointer;
     font-size: 0.8rem;
-    margin-left: 1%;
 }
+
 /* visualizacion*/
 .pistas{
     display: flex;
@@ -280,40 +271,41 @@ nav ul li{
     padding-bottom: 8%;
 }
 footer {
-    /*position: fixed;*/
-    position: relative;
-    /*bottom: 0;*/
+    position: fixed;
+    bottom: 0;
     width: 100%;
     background-color: #c5c8c9;
     color: #fff;
     text-align: center;
     padding: 2% 0;
-    clear:both;
+    clear: both;
 }
 
-.footer-container{
+/* Opcional: Ajusta la opacidad para que el contenido principal no oculte completamente el pie de página */
+#content {
+    margin-bottom: 100px; /* ajusta según la altura del pie de página */
+}
+
+/* Asegúrate de que el pie de página no se superponga con el contenido principal */
+.footer-container {
     position: absolute;
     bottom: 0;
     width: 100%;
-    margin-top:90%;
-}
-.footer-above {
-    padding-top: 0.1%;
-    background-color: rgb(237, 232, 232);
 }
 
+.footer-above,
 .footer-below {
     background-color: rgb(237, 232, 232);
 }
 
-footer img{
-    width: 8%;
-    height: 8%;
+footer img {
+    width: 50px;
+    height: 50px;
     margin-right: 5%;
     margin-left: 1%;
 }
 
-footer #redes{
+footer #redes {
     float: right;
     margin-right: 12%;
     font-weight: bold;
