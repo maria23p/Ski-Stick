@@ -122,33 +122,39 @@
                             <h4 itemprop="phone">Teléfono</h4>
                         </div>
                     </div>
-                    <div>
-                        <div class="row" v-for="(contacto, index) in contactos">
-                            <div class="col-xs-4">
-                                {{contacto.nombre}}
-                            </div>
-                            <div class="col-xs-4">
-                                {{contacto.email}}
-                            </div>
-                            <div class="col-xs-3">
-                                {{contacto.telefono}}
-                            </div>
-                            <div class="col-xs-1">
-                                <button @click="eliminarContacto(index)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button>
+                    
+                    <template>
+                        <div>
+                            <div class="row" v-for="(contacto, index) in contactos">
+                                <div class="col-xs-4">
+                                    {{contacto.nombre}}
+                                </div>
+                                <div class="col-xs-4">
+                                    {{contacto.email}}
+                                </div>
+                                <div class="col-xs-3">
+                                    {{contacto.telefono}}
+                                </div>
+                                <div class="col-xs-1">
+                                    <button v-on:click="eliminarContacto(index)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div>
+                            <div class="row">
+                                <div class="col-xs-12" v-if = "contactos.length == 0">
+                                    <p>No se ha encontrado ningún contacto.</p>
+                                </div>
+                            </div>
+                          </div>
+                    </template>
+
+                    
                     
                    
                     
                 </div>
-                <div>
-                  <div class="row">
-                      <div class="col-xs-12" v-if = "contactos.length == 0">
-                          <p>No se ha encontrado ningún contacto.</p>
-                      </div>
-                  </div>
-                </div>
+                
             </div>
         </section>
     
@@ -163,40 +169,43 @@
                         <hr class="star-primary">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <form name="sentMessage" id="contactForm" novalidate>
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Nombre</label>
-                                    <input v-model = "nuevoContacto.nombre" type="text" class="form-control" placeholder="Nombre" id="name">
-                                    <p class="help-block text-danger"></p>
+                <template>
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <form name="sentMessage" id="contactForm" novalidate>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Nombre</label>
+                                        <input v-model = "nuevoContacto.nombre" type="text" class="form-control" placeholder="Nombre" id="name">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Email</label>
-                                    <input v-model = "nuevoContacto.email" type="email" class="form-control" placeholder="Email" id="email">
-                                    <p class="help-block text-danger"></p>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Email</label>
+                                        <input v-model = "nuevoContacto.email" type="email" class="form-control" placeholder="Email" id="email">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Teléfono</label>
-                                    <input v-model = "nuevoContacto.telefono" type="tel" class="form-control" placeholder="Número de teléfono" id="phone">
-                                    <p class="help-block text-danger"></p>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Teléfono</label>
+                                        <input v-model = "nuevoContacto.telefono" type="tel" class="form-control" placeholder="Número de teléfono" id="phone">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <br>
-                            <div id="success"></div>
-                            <div class="row">
-                                <div class="form-group col-xs-12">
-                                    <button @click="agregarContacto" class="btn btn-success btn-lg">Añadir</button>
+                                <br>
+                                <div id="success"></div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <button v-on:click="agregarContacto" class="btn btn-success btn-lg">Añadir</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                </template>
+                
             </div>
         </section>
     </div>
