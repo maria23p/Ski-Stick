@@ -390,3 +390,9 @@ select{
     bottom: 5%; 
     right: 3%; 
 }
+/* para centrar el texto y el boton de la X de la pagina de confirmacion */
+#botonClose{
+    display: flex; /* Utilizamos flexbox para alinear contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; 
+}
