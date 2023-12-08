@@ -209,26 +209,17 @@ class FormularioView(View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        formulario = MiFormulario(request.POST)
-        if formulario.is_valid():
-            datos_formulario = formulario.cleaned_data
-            email_usu = datos_formulario['email']
-            # para enviar el email - no funciona
-            asunto = _('Asunto del correo'),
-            cuerpo = _('Cuerpo del correo'),
-            correoRemitente = 'appSkispain@gmail.com',
-            correoDest = [email_usu],
-
-            #send_mail(asunto, cuerpo, correoRemitente, correoDest, fail_silently=False)            
-            # Realizar acciones con estos datos, como guardarlos en la BD, enviar un correo, etc. MIRAR ESTO!
-            #return redirect('index')
-            return render(request, self.confirmacion_template)
+        formulario = MiFormulario()
 
         context = {'formulario':formulario}
         context['LANGUAGES'] = [
-            ('es', _('Spanish')),
-            ('en', _('English')),
+        ('es', _('Spanish')),
+        ('en', _('English')),
         ]
         
-        return render(request, self.template_name, context)
+
+        # Realizar acciones con estos datos, como guardarlos en la BD, enviar un correo, etc. MIRAR ESTO!
+        return render(request, self.confirmacion_template, context)
+
+       
 

@@ -1,21 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
+{% block titulo %}{% trans 'Confirmacion' %}{% endblock %}
+
 {% block contenido %}
     <div class="container">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <!-- Contenido del alert -->
-            <div id="botonClose">
-                <strong>El formulario ha sido rellenado correctamente y se contactará con usted más adelante.</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+        <div id="botonClose">
+            <strong>{% trans 'El formulario ha sido rellenado correctamente y se contactará con usted más adelante.' %}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         </div>
     </div>
-
+<!-- js -->
     <script>
-        document.querySelector('.alert .close').addEventListener('click', function() {
-            window.location.href = "{% url 'index' %}"; // Redirige a la página de inicio
+        // cuando se pulse sobre el botón 'close', redirige al template 'index.html'
+        document.querySelector('.close').addEventListener('click', function() {
+            window.location.href = "{% url 'index' %}"; 
         });
     </script>
 {% endblock %}

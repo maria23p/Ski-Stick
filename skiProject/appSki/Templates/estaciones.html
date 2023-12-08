@@ -10,12 +10,12 @@
         {% for e in estaciones %}
             <div class="imgIndex">
                 <div class="texto">
-                    <a href="{% url 'estacion' pk=e.id%}">{{e.nombre}}</a>
+                    <a href="{% url 'estacion' pk=e.id%}" class="nombre-estacion">{{e.nombre}}</a>
                 </div>
                 <div class="imagenes">
                     <a href="{% url 'estacion' pk=e.id%}">
                     {% with "images/"|add:e.nombre|add:".jpg" as imagen %}
-                    <img src="{% static imagen %}" alt="">
+                    <img src="{% static imagen %}" alt="" class="imagen-estacion">
                     {% endwith %}
                 </a>
                 </div>
@@ -24,4 +24,30 @@
     {% else %}
         <p>{% trans 'No hay estaciones creadas.' %}</p>
     {% endif %}
+        
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nombresEstaciones = document.querySelectorAll('.nombre-estacion');
+            const imagenesEstaciones = document.querySelectorAll('.imagen-estacion');
+    
+            nombresEstaciones.forEach(function(nombreEstacion, index) {
+                nombreEstacion.addEventListener('mouseenter', function() {
+                    imagenesEstaciones[index].classList.add('ampliar-imagen');
+                });
+    
+                nombreEstacion.addEventListener('mouseleave', function() {
+                    imagenesEstaciones[index].classList.remove('ampliar-imagen');
+                });
+    
+                imagenesEstaciones[index].addEventListener('mouseenter', function() {
+                    imagenesEstaciones[index].classList.add('ampliar-imagen');
+                });
+    
+                imagenesEstaciones[index].addEventListener('mouseleave', function() {
+                    imagenesEstaciones[index].classList.remove('ampliar-imagen');
+                });
+            });
+        });
+    </script>
+    
 {% endblock %}

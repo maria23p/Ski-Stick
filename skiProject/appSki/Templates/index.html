@@ -3,39 +3,56 @@
 {% load i18n %}
 {% block titulo %}{% trans 'Portada' %}{% endblock %}
 
-
 {% block contenido %}
 <div class="portada">
-
     {% for estacion in estaciones_filtradas %}
         <div class="localidad">
-            <h2>{{estacion.localidad.nombre}}</h2>
+            <h2 class="nombre-localidad">{{ estacion.localidad.nombre }}</h2>
             {% with estacion_filtrada=estacion %}
                 {% if estacion_filtrada %}
-                <h3><a href="{% url 'estacion' estacion_filtrada.id %}">{{estacion_filtrada.nombre}}</a></h3>
+                    <h3><a href="{% url 'estacion' estacion_filtrada.id %}">{{ estacion_filtrada.nombre }}</a></h3>
                     <div class="imagenPortada">
                         <a href="{% url 'estacion' estacion_filtrada.id %}">
-                        {% with "images/"|add:estacion_filtrada.nombre|add:".jpg" as imagen %}
-                            <img src="{% static imagen %}" alt="{{ estacion_filtrada.nombre }}">
-                        {% endwith %}
+                            {% with "images/"|add:estacion_filtrada.nombre|add:".jpg" as imagen %}
+                                <img src="{% static imagen %}" alt="{{ estacion_filtrada.nombre }}" class="imagen-estacion">
+                            {% endwith %}
                         </a>
                     </div>
                 {% endif %}
             {% endwith %}
         </div>
-
     {% endfor %}
 </div>
 
+
+<!--   Javascript, jquery // efecto imagenes-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    // Primero se verifica si el mensaje ya se ha mostrado antes
-    if (!localStorage.getItem('mensajeMostrado')) {
-        // solo se muestra si no se ha mostrado antes
-        alert("¡Bienvenid@ a nuestra página de esquí! Descubre las mejores estaciones, pistas y una gran cartelera de servicios para unas vacaciones increíbles.");
-        // hay q marcar el mensaje como mostrado para que no aparezca nuevamente
-        localStorage.setItem('mensajeMostrado', 'true');
-    }
+    $(document).ready(function() {
+        // para más tarde almacenar las imagenes originales de las estaciones filtradas   
+        var imagenesOriginales = {};
+
+        // cuando el cursor esta sobre el nombre de la localidad 
+        $('.nombre-localidad').mouseenter(function() {
+            // para coger la imagen de la localidad
+            var imgURL = "{% static 'images/' %}" + $(this).text().trim() + ".jpg";
+            var estacion = $(this).closest('.localidad').find('.imagen-estacion');
+            // almacena la imagen original de cada estacion filtrada
+            imagenesOriginales[estacion.attr('alt')] = estacion.attr('src');
+            // mostrar la imagen de la localidad 
+            estacion.attr('src', imgURL);
+        });
+
+        // cuando el cursor deja de estar sobre el nombre de la localidad 
+        $('.nombre-localidad').mouseleave(function() {
+            // vuelve a mostrar la imagen original de las estaciones filtradas al alejarse del nombre de la localidad
+            var estacion = $(this).closest('.localidad').find('.imagen-estacion');
+            // coge el valor del atributo alt de cada imagen y en el if se comprueba si existe
+            var nombreEstacion = estacion.attr('alt');
+            if (imagenesOriginales[nombreEstacion]) {
+                estacion.attr('src', imagenesOriginales[nombreEstacion]);
+            }
+        });
+    });
 </script>
-
 {% endblock %}
-

@@ -16,22 +16,20 @@ h1{
     text-align: center;
     margin-top: 5%;
     margin-bottom: 5%;
+    font-size: 2vw;
 }
 h2{
-    font-size: 2vw;
+    font-size: 1.6vw;
     text-align: center;
     margin-top: 2vh;   
 }
 nav{
-    /*position: fixed;*/
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     background-color: rgb(223, 216, 216);
-    color: white;
-    /* creo que se puede quitar */
-   /* z-index: 1000; */   
+    color: white;  
 }
 
 nav.boton{
@@ -99,7 +97,7 @@ nav.boton{
     align-items: center;
     margin: 0 auto;
     max-width: 80%; 
-    font-size: 1.4vw;
+    font-size: 1.1vw;
 }
 
 
@@ -200,7 +198,7 @@ nav ul li{
     margin: 0 1.5%; 
     background-color: rgb(223, 216, 216);
     width: 20%; /* Cambia el ancho según lo que necesites */
-    height: 30vh;
+    height: 35vh;
 }
 
 .localidad a{
@@ -215,7 +213,7 @@ nav ul li{
     width: 100%; /* Ancho máximo del contenedor padre */
     height: auto; /* Altura ajustada automáticamente */
     max-width: 100%; /* Ajuste máximo */
-    max-height: 50vh; /* Altura relativa a la altura del viewport */
+    max-height: 60vh; /* Altura relativa a la altura del viewport */
 }
 
 /* caja que tiene lo de elegir el lenguaje y el boton */
@@ -395,4 +393,9 @@ select{
     display: flex; /* Utilizamos flexbox para alinear contenido */
     justify-content: center; /* Centra horizontalmente */
     align-items: center; 
+}
+
+.ampliar-imagen {
+    transform: scale(1.2); /* Cambia el tamaño de la imagen */
+    transition: transform 0.3s ease; /* transición suave al cambiar el tamaño */
 }
