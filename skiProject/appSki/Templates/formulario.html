@@ -21,18 +21,18 @@
     </p>
     <!-- CAMBIAR A JPJ -->
     <div class="foto">
-        <label class="labelf" for="people">{% trans '+25 personas' %} </label>
+        <label class="labelf">{% trans '+25 personas' %} </label>
         <img src="{% static 'images/people.png' %}" alt="Descripción de la imagen 2">
     </div>
     <div class="foto">
-        <label class="labelf" for="companies">{% trans 'Empresas' %}</label>
+        <label class="labelf">{% trans 'Empresas' %}</label>
         <img src="{% static 'images/companies.png' %}" alt="Descripción de la imagen 2">
     </div>
     <div class="foto">
-        <label class="labelf" for="schoolchildren">{% trans 'Escolares' %}</label>
+        <label class="labelf">{% trans 'Escolares' %}</label>
         <img src="{% static 'images/schoolchildren.png' %}" alt="Descripción de la imagen 2">
     </div>
-    <form method="post" id="mFormulario"class="formulario-justificado">
+    <form method="post" id="mFormulario" class="formulario-justificado">
         {% csrf_token %}
         <div class="form-group">
             {{ formulario.as_p }}

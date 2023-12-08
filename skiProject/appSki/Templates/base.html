@@ -20,7 +20,7 @@
                         <div id="idioma">
                             <form action="{% url 'set_language' %}" method="post">
                                 {% csrf_token %}
-                                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                <input name="next" type="hidden" value="{{ redirect_to }}">
                                 <select name="language" id="language">
                                     {% for lang_code, lang_name in LANGUAGES %}
                                         <option value="{{ lang_code }}"
@@ -31,7 +31,7 @@
                                         </option>
                                     {% endfor %}
                                 </select>
-                                <li><button id="btn-nav" class="espacio" type="submit">{% trans 'Cambiar idioma' %}</button></li>
+                                <button id="btn-nav" class="espacio" type="submit">{% trans 'Cambiar idioma' %}</button>
                             </form>
                         </div>
                     </li>
@@ -39,17 +39,18 @@
             </nav>
            
           
-	     <h1>AppSki</h1>
+	        <h1>AppSki</h1>
             {% block contenido %}{% endblock %}
         </div>
+
         <!-- footer -->
         <footer class="text-center">
             <div class="footer-container">
                 <div class="footer-above">
                     <div class="container">
-                        <img src={% static '/images/Instagram.webp' %} alt="instagram">
-                        <img src={% static '/images/tiktok.jpg' %} alt="tiktok">
-                        <img src={% static '/images/facebook.avif' %} alt="facebook">
+                        <img src="{% static '/images/Instagram.webp' %}" alt="instagram">
+                        <img src="{% static '/images/tiktok.jpg' %}" alt="tiktok">
+                        <img src="{% static '/images/facebook.avif' %}" alt="facebook">
                         <p id="redes">{% trans 'Tambien nos puede encontrar en nuestras redes sociales: @appSki' %}</p>
                     </div>
                 </div>
