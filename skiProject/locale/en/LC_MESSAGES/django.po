@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-08 19:13+0000\n"
+"POT-Creation-Date: 2023-12-09 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,8 +39,9 @@ msgid "Servicios"
 msgstr "Services"
 
 #: appSki/Templates/base.html:18 appSki/Templates/formulario.html:4
-msgid "Formulario"
-msgstr "Form"
+#: appSki/Templates/formulario.html:9
+msgid "Viajes en grupo"
+msgstr "Group ski trips"
 
 #: appSki/Templates/base.html:34
 msgid "Cambiar idioma"
@@ -48,13 +49,13 @@ msgstr "Change language"
 
 #: appSki/Templates/base.html:54
 msgid "Tambien nos puede encontrar en nuestras redes sociales: @appSki"
-msgstr ""
+msgstr "You can also find us on our social networks: @appSki"
 
 #: appSki/Templates/confirmacion.html:4
 msgid "Confirmacion"
-msgstr ""
+msgstr "Confirmation"
 
-#: appSki/Templates/confirmacion.html:11
+#: appSki/Templates/confirmacion.html:9
 msgid ""
 "El formulario ha sido rellenado correctamente y se contactará con usted más "
 "adelante."
@@ -84,7 +85,7 @@ msgstr "Opening hours:"
 msgid "Horario de cierre:"
 msgstr "Closing hours:"
 
-#: appSki/Templates/estacion.html:24 appSki/views.py:191
+#: appSki/Templates/estacion.html:24 appSki/views.py:188
 msgid "Telefono:"
 msgstr "Phone number:"
 
@@ -131,10 +132,6 @@ msgstr "This station does not exist."
 #: appSki/Templates/estaciones.html:25
 msgid "No hay estaciones creadas."
 msgstr "There are no stations created."
-
-#: appSki/Templates/formulario.html:9
-msgid "Viajes para esquiar en grupo"
-msgstr "Group ski trips"
 
 #: appSki/Templates/formulario.html:11
 msgid "¿Quieres organizar un viaje inolvidable para esquiar con tu grupo?"
@@ -240,7 +237,7 @@ msgstr "There are no locations created."
 msgid "Datos de la pista"
 msgstr "Track data"
 
-#: appSki/Templates/pista.html:17 appSki/views.py:189
+#: appSki/Templates/pista.html:17 appSki/views.py:186
 msgid "Nombre:"
 msgstr "Name:"
 
@@ -302,67 +299,65 @@ msgstr "No services have been created."
 msgid "Nombre"
 msgstr "Name:"
 
-#: appSki/views.py:32 appSki/views.py:48 appSki/views.py:62 appSki/views.py:78
-#: appSki/views.py:93 appSki/views.py:114 appSki/views.py:143
-#: appSki/views.py:158 appSki/views.py:176 appSki/views.py:206
-#: appSki/views.py:229
+#: appSki/views.py:29 appSki/views.py:45 appSki/views.py:59 appSki/views.py:75
+#: appSki/views.py:90 appSki/views.py:111 appSki/views.py:140
+#: appSki/views.py:155 appSki/views.py:173 appSki/views.py:203
+#: appSki/views.py:220
 msgid "Spanish"
 msgstr ""
 
-#: appSki/views.py:33 appSki/views.py:49 appSki/views.py:63 appSki/views.py:79
-#: appSki/views.py:94 appSki/views.py:115 appSki/views.py:144
-#: appSki/views.py:159 appSki/views.py:177 appSki/views.py:207
-#: appSki/views.py:230
+#: appSki/views.py:30 appSki/views.py:46 appSki/views.py:60 appSki/views.py:76
+#: appSki/views.py:91 appSki/views.py:112 appSki/views.py:141
+#: appSki/views.py:156 appSki/views.py:174 appSki/views.py:204
+#: appSki/views.py:221
 msgid "English"
 msgstr ""
 
-#: appSki/views.py:190
+#: appSki/views.py:187
 msgid "Apellidos:"
 msgstr "Last name:"
 
-#: appSki/views.py:192
+#: appSki/views.py:189
 msgid "Edad:"
 msgstr "Age:"
 
-#: appSki/views.py:193
+#: appSki/views.py:190
 msgid "Direccion:"
 msgstr "Address:"
 
-#: appSki/views.py:194
+#: appSki/views.py:191
 msgid "Email:"
 msgstr "Email:"
 
-#: appSki/views.py:195
+#: appSki/views.py:192
 msgid "Tipo de viaje:"
 msgstr "Type of trip:"
 
-#: appSki/views.py:197
+#: appSki/views.py:194
 msgid "---"
 msgstr ""
 
-#: appSki/views.py:198
+#: appSki/views.py:195
 msgid "Colegio"
 msgstr "School"
 
-#: appSki/views.py:199
+#: appSki/views.py:196
 msgid "Universidad"
 msgstr "University"
 
-#: appSki/views.py:200
+#: appSki/views.py:197
 msgid "Empresa"
 msgstr "Companies"
 
-#: appSki/views.py:201
+#: appSki/views.py:198
 msgid "Grupo de amigos"
 msgstr "Group of friends"
 
-#: appSki/views.py:217
-msgid "Asunto del correo"
-msgstr ""
+#~ msgid "Viajes para esquiar en grupo"
+#~ msgstr "Group ski trips"
 
-#: appSki/views.py:218
-msgid "Cuerpo del correo"
-msgstr ""
+#~ msgid "Formulario"
+#~ msgstr "Form"
 
 #~ msgid "Todas las estaciones"
 #~ msgstr "All ski resorts"

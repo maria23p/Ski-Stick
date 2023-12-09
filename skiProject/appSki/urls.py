@@ -12,4 +12,5 @@ path('estaciones/<int:pk>', views.EstacionDetailView.as_view(), name='estacion')
 path('pistas/<int:pk>', views.PistaDetailView.as_view(), name='pista'),
 path('servicios/<int:pk>', views.ServicioDetailView.as_view(), name='servicio'),
 path('show_formulario/', views.FormularioView.as_view(), name='show_formulario'),
+path('confirmacion/', views.ConfirmacionView.as_view(), name='confirmacion'),
 ]

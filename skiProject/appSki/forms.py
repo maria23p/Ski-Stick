@@ -1,18 +1,27 @@
 from django import forms
-# se define los campos que queremos que salgan en el formulario
-class vFormulario(forms.Form):
-    nombre = forms.CharField(label="Nombre:", max_length=50, min_length=3 )
-    apellidos = forms.CharField(label="Apellidos:", max_length=150, min_length=3)
-    telefono = forms.CharField(label="Telefono:", max_length=100)
-    edad = forms.IntegerField(label="Edad:", min_value=1)
-    direccion =  forms.CharField(label="Direccion:", required = False)
-    email = forms.EmailField(label="Email:")
-    TIPO_VIAJE_CHOICES = [
-        ('default', '---'),
-        ('colegio', 'Colegio'),
-        ('universidad', 'Universidad'),
-        ('empresa', 'Empresa'),
-        ('grupo_amigos', 'Grupo de amigos'),
-    ]
+from .models import ViajesEnGrupo
 
-    tipo_viaje = forms.ChoiceField(label="Tipo de viaje:", choices=TIPO_VIAJE_CHOICES, initial='default')
+class vFormulario(forms.ModelForm):
+    class Meta:
+        model = ViajesEnGrupo
+        fields = ['nombre', 'apellidos', 'telefono', 'edad', 'direccion', 'email', 'tipo_viaje']
+        
+    # funciones para crear 'restricciones' al introducir los datos (el usuario)
+    # hay que usar metodo clean()
+    def clean_nombre(self):
+        nombre = self.cleaned_data['nombre']
+        if len(nombre) <= 2 or len(nombre) > 30:
+            raise forms.ValidationError("El nombre debe tener entre 3 y 30 caracteres.")
+        return nombre
+    
+    def clean_apellidos(self):
+        apellidos = self.cleaned_data['apellidos']
+        if len(apellidos) <= 2 or len(apellidos) > 30:
+            raise forms.ValidationError("Los apellidos deben tener entre 3 y 30 caracteres.")
+        return apellidos
+    
+    def clean_edad(self):
+        edad = self.cleaned_data['edad']
+        if edad <= 0 or edad > 100:
+            raise forms.ValidationError("La edad debe estar entre 1 y 100 años.")
+        return edad

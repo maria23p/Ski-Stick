@@ -8,6 +8,7 @@ from django.views.generic import DetailView, ListView, View
 from django.utils import translation
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 
 
@@ -205,17 +206,25 @@ class FormularioView(View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        formulario = vFormulario()
+        formulario = vFormulario(request.POST)
 
-        context = {'formulario':formulario}
-        context['LANGUAGES'] = [
-        ('es', _('Spanish')),
-        ('en', _('English')),
-        ]
+        if formulario.is_valid():
+            nuevo_usuario = formulario.save(commit=False)  # aqui coge los datos del formulario pero no los guarda aún en la BD
+            nuevo_usuario.save()  # guardar los datos en BD
+            
+            # redirige la pagina 
+            return HttpResponseRedirect(reverse('confirmacion'))  # Cambia 'confirmacion' por el nombre de tu URL de confirmación
         
-
-        # Realizar acciones con estos datos, como guardarlos en la BD, enviar un correo, etc. MIRAR ESTO!
-        return render(request, self.confirmacion_template, context)
-
+        context = {'formulario': formulario}
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return render(request, self.template_name, context)
+        
        
+class ConfirmacionView(View):
+    conf_template = 'confirmacion.html'
 
+    def get(self, request, *args, **kwargs):
+        return render(request, self.conf_template)

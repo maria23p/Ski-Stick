@@ -59,3 +59,17 @@ class EstacionServicio(models.Model):
     def __str__(self):
         return f'{self.estacion.nombre} - {self.servicio.nombre}'
     
+class ViajesEnGrupo(models.Model):
+    nombre = models.CharField(max_length=100, blank=False)
+    apellidos = models.CharField(max_length=150, blank=False)
+    telefono = models.CharField(max_length=100, blank=False)
+    edad = models.IntegerField( blank=False)
+    direccion = models.CharField(max_length=255)
+    email = models.EmailField(blank=False, null=True)
+    TIPO_VIAJE_CHOICES = [
+    ('default', '---'),
+    ('colegio', 'Colegio'),
+    ('universidad', 'Universidad'),
+    ('empresa', 'Empresa'),
+    ('grupo_amigos', 'Grupo de amigos'),]
+    tipo_viaje = models.CharField(max_length=20, choices=TIPO_VIAJE_CHOICES,  blank=False)
