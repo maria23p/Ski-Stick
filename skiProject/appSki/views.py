@@ -3,16 +3,12 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.shortcuts import render, redirect
 from .models import Localidad, Estacion, Pista, Servicio, EstacionServicio
-from .forms import MiFormulario 
+from .forms import vFormulario 
 from django.views.generic import DetailView, ListView, View
 from django.utils import translation
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
-# para intentar enviar un mail al realizar el formulario - no conseguido
-from django.core.mail import send_mail
-# vistas para la agendaVue
-from django.http import JsonResponse
-import json 
+
 
 
 # Portada.
@@ -184,8 +180,8 @@ class FormularioView(View):
     confirmacion_template = 'confirmacion.html'
     
     def get(self, request, *args, **kwargs):
-        formulario = MiFormulario()
-        
+        formulario = vFormulario()
+        # traducción
         formulario.fields['nombre'].label = _('Nombre:')
         formulario.fields['apellidos'].label = _('Apellidos:')
         formulario.fields['telefono'].label = _('Telefono:')
@@ -209,7 +205,7 @@ class FormularioView(View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        formulario = MiFormulario()
+        formulario = vFormulario()
 
         context = {'formulario':formulario}
         context['LANGUAGES'] = [
