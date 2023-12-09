@@ -1,3 +1,4 @@
+<!-- plantilla base -->
 {% load static %}
 {% load i18n %}
 <!DOCTYPE html>
@@ -6,6 +7,7 @@
         <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
         <title>{% block titulo %}AppSki{% endblock %}</title>
     </head>
+    
     <body>
         <div id="content">
             <nav>
@@ -22,6 +24,8 @@
                                 {% csrf_token %}
                                 <input name="next" type="hidden" value="{{ redirect_to }}">
                                 <select name="language" id="language">
+                                    <!-- recorre la lista de idiomas para mostrarlos en el desplegable -->
+                                    <!-- LANGUAJES -> lista de tuplas que contiene los códigos de idioma y sus nombres correspondientes(en settings.py) -->
                                     {% for lang_code, lang_name in LANGUAGES %}
                                         <option value="{{ lang_code }}"
                                             {% if lang_code == request.LANGUAGE_CODE %}
@@ -38,7 +42,6 @@
                 </ul>
             </nav>
            
-          
 	        <h1>AppSki</h1>
             {% block contenido %}{% endblock %}
         </div>
@@ -48,9 +51,15 @@
             <div class="footer-container">
                 <div class="footer-above">
                     <div class="container">
-                        <img src="{% static '/images/Instagram.webp' %}" alt="instagram">
-                        <img src="{% static '/images/tiktok.jpg' %}" alt="tiktok">
-                        <img src="{% static '/images/facebook.avif' %}" alt="facebook">
+                        <a href="https://www.instagram.com" target="_blank">
+                            <img src="{% static '/images/Instagram.webp' %}" alt="instagram">
+                        </a>
+                        <a href="https://www.tiktok.com" target="_blank">
+                            <img src="{% static '/images/tiktok.jpg' %}" alt="tiktok">
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="{% static '/images/facebook.avif' %}" alt="facebook">
+                        </a>
                         <p id="redes">{% trans 'Tambien nos puede encontrar en nuestras redes sociales: @appSki' %}</p>
                     </div>
                 </div>

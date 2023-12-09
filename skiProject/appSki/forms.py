@@ -6,6 +6,7 @@ class vFormulario(forms.ModelForm):
         model = ViajesEnGrupo
         fields = ['nombre', 'apellidos', 'telefono', 'edad', 'direccion', 'email', 'tipo_viaje']
         
+    # Validación de datos
     # funciones para crear 'restricciones' al introducir los datos (el usuario)
     # hay que usar metodo clean()
     def clean_nombre(self):

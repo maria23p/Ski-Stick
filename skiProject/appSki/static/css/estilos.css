@@ -4,12 +4,6 @@ body{
     background-color: rgb(237, 232, 232);
     margin: 0 auto;
     padding: 1%;
-    /*max-width: 100%; 
-    min-height: 65vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;*/
 }
 
 h1{
@@ -374,6 +368,8 @@ select{
     font-size: 1rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     float: right;
+    background-color: rgb(237, 232, 232);
+
 }
 #btn-nav{
     padding: 1rem 2.5rem;

@@ -1,17 +1,13 @@
-from typing import Any
-from django.http import HttpResponse, Http404, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, get_list_or_404
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
 from .models import Localidad, Estacion, Pista, Servicio, EstacionServicio
 from .forms import vFormulario 
 from django.views.generic import DetailView, ListView, View
-from django.utils import translation
-from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 
-
-
+# VISTAS BASADAS EN CLASES
 # Portada.
 class PortadaListView(ListView):
     model = Estacion
@@ -32,7 +28,7 @@ class PortadaListView(ListView):
         return context
      
 
-#devuelve el listado de localidades
+# devuelve el listado de localidades
 class LocalidadesListView(ListView):
     model = Localidad
     template_name = 'localidades.html'
@@ -47,7 +43,7 @@ class LocalidadesListView(ListView):
         ]
         return context
 
-#devuelve listado de estaciones
+# devuelve listado de estaciones
 class EstacionesListView(ListView):
     template_name = 'estaciones.html'
     queryset = Estacion.objects.order_by('nombre')
@@ -62,7 +58,7 @@ class EstacionesListView(ListView):
         return context
     
 
-#devuelve listado de pistas
+# devuelve listado de pistas
 class PistasListView(ListView):
     model = Pista
     template_name = 'pistas_todas.html'
@@ -77,7 +73,7 @@ class PistasListView(ListView):
         ]
         return context
 
-#devuelve listado de servicios
+# devuelve listado de servicios
 class ServiciosListView(ListView):
     model = Servicio
     template_name = 'servicios_todos.html'
@@ -92,7 +88,7 @@ class ServiciosListView(ListView):
         ]
         return context
 
-#devuelve las estaciones de cada localidad
+# devuelve las estaciones de cada localidad
 class EstacionesLocalidadListView(ListView):
     model = Localidad
     template_name = 'estaciones.html'
@@ -114,20 +110,12 @@ class EstacionesLocalidadListView(ListView):
         return context
     
 
-#devuelve los datos de una estacion
+# devuelve los datos de una estacion
 class EstacionDetailView(DetailView):
     model = Estacion
     template_name = 'estacion.html'
 
     def get_context_data(self, **kwargs):
-        #estacion = get_object_or_404(Estacion, pk=self.kwargs['pk'])
-        #pistas =  estacion.pistas.all()
-        #servicios = EstacionServicio.objects.filter(estacion = estacion)
-        #context = super(EstacionDetailView, self).get_context_data(**kwargs)
-        #context['pistas'] = pistas
-        #context['servicios'] = servicios
-        #return context
-    
         context = super().get_context_data(**kwargs)
         estacion = get_object_or_404(Estacion, pk=self.kwargs['pk'])
         pistas =  estacion.pistas.all()
@@ -144,29 +132,25 @@ class EstacionDetailView(DetailView):
 
 
 
-#devuelve los detalles de una pista
+# devuelve los detalles de una pista
 class PistaDetailView(DetailView):
     model = Pista
     template_name = 'pista.html'
     
     def get_context_data(self, **kwargs):
-            context = super().get_context_data(**kwargs)
-            context['LANGUAGES'] = [
-                ('es', _('Spanish')),
-                ('en', _('English')),
-            ]
-            return context
-        
-#devuelve los detalles de un servicio
+        context = super().get_context_data(**kwargs)
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context
+    
+# devuelve los detalles de un servicio
 class ServicioDetailView(DetailView):
     model = Servicio
     template_name = 'servicio.html'
 
     def get_context_data(self, **kwargs):
-        #context = super(ServicioDetailView,self).get_context_data(**kwargs)
-        #context['estaciones'] = Estacion.objects.filter(servicios=self.object)
-        #return context
-
         context = super().get_context_data(**kwargs)
         context['estaciones'] = Estacion.objects.filter(servicios=self.object)
         context['LANGUAGES'] = [
@@ -175,7 +159,7 @@ class ServicioDetailView(DetailView):
         ]
         return context
 
-#formulario
+# formulario
 class FormularioView(View):
     template_name = 'formulario.html'
     confirmacion_template = 'confirmacion.html'
@@ -196,6 +180,7 @@ class FormularioView(View):
             ('universidad', _('Universidad')),
             ('empresa', _('Empresa')),
             ('grupo_amigos', _('Grupo de amigos')),
+            ('otros', _('Otros')),
         ]
          
         context = {'formulario':formulario}
@@ -227,4 +212,13 @@ class ConfirmacionView(View):
     conf_template = 'confirmacion.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.conf_template)
+        context = self.get_context_data(**kwargs)
+        return render(request, self.conf_template, context)
+
+    def get_context_data(self, **kwargs):
+        context = {}
+        context['LANGUAGES'] = [
+            ('es', _('Spanish')),
+            ('en', _('English')),
+        ]
+        return context

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load i18n %}
-{% block titulo %}Listado de localidades{% endblock %}
+{% block titulo %}{% trans 'Listado de estaciones' %}{% endblock %}
 
 {% block contenido %}
     <h2>{% trans 'Estaciones' %}</h2>
@@ -24,21 +24,31 @@
     {% else %}
         <p>{% trans 'No hay estaciones creadas.' %}</p>
     {% endif %}
-        
+    
+<!-- js -->      
+    <!-- el objetivo de este bloque es que se agrande la imagen cuando se pasa el cursor sobre el nombre de la estacion o 
+        sobre la imagen -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // se seleccionan los elementos 
             const nombresEstaciones = document.querySelectorAll('.nombre-estacion');
             const imagenesEstaciones = document.querySelectorAll('.imagen-estacion');
-    
+            
+            // para iterar sobre cada nombre
             nombresEstaciones.forEach(function(nombreEstacion, index) {
+                // eventos 
                 nombreEstacion.addEventListener('mouseenter', function() {
+                    // cuando se pasa el cursor por el nombre, se añade a la imagen correspondiente el 'ampliar-imagen'
+                    // 'ampliar-imagen' definido en los estilos
                     imagenesEstaciones[index].classList.add('ampliar-imagen');
                 });
     
                 nombreEstacion.addEventListener('mouseleave', function() {
+                    // cuando se levanta el cursor, se elimina 'ampliar-imagen'
                     imagenesEstaciones[index].classList.remove('ampliar-imagen');
                 });
-    
+                
+                // lo mismo que arriba pero con las imagenes
                 imagenesEstaciones[index].addEventListener('mouseenter', function() {
                     imagenesEstaciones[index].classList.add('ampliar-imagen');
                 });

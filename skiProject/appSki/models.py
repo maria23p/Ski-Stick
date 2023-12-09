@@ -64,12 +64,14 @@ class ViajesEnGrupo(models.Model):
     apellidos = models.CharField(max_length=150, blank=False)
     telefono = models.CharField(max_length=100, blank=False)
     edad = models.IntegerField( blank=False)
-    direccion = models.CharField(max_length=255)
-    email = models.EmailField(blank=False, null=True)
+    direccion = models.CharField(max_length=255, null=True)
+    email = models.EmailField(blank=False)
     TIPO_VIAJE_CHOICES = [
     ('default', '---'),
     ('colegio', 'Colegio'),
     ('universidad', 'Universidad'),
     ('empresa', 'Empresa'),
-    ('grupo_amigos', 'Grupo de amigos'),]
-    tipo_viaje = models.CharField(max_length=20, choices=TIPO_VIAJE_CHOICES,  blank=False)
+    ('grupo_amigos', 'Grupo de amigos'),
+    ('otros', 'Otros'),
+    ]
+    tipo_viaje = models.CharField(max_length=20, choices=TIPO_VIAJE_CHOICES, blank=False)
