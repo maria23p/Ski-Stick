@@ -17,6 +17,7 @@ class PortadaListView(ListView):
     def get_queryset(self):
         raw_query = 'SELECT * FROM (SELECT * FROM appSki_Estacion ORDER BY Superficie DESC) AS ranked_stations GROUP BY localidad_id'
         queryset = Estacion.objects.raw(raw_query)
+        queryset = sorted(queryset, key=lambda x: x.localidad.nombre)
         return queryset
     
     def get_context_data(self, **kwargs):
